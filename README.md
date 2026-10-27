@@ -8,24 +8,18 @@ Pure HTML + CSS, geen JavaScript, geen build-stap.
 ```
 index.html               de pagina
 css/style.css            alle opmaak
-assets/img/              illustraties en plaatshouders (SVG)
-assets/video/            hier komt teaser.mp4
+assets/img/              foto's (JPG), favicon en teamplaatshouder (SVG)
+assets/video/            vertual-impressie.mp4
 ```
 
-## Foto's en video toevoegen
+## Foto's en video
 
-| Wat | Waar in `index.html` | Bestand |
-|-----|----------------------|---------|
-| Teaser-video | sectie "Het idee" | zet `teaser.mp4` in `assets/video/` |
-| Foto per station | `<img src="assets/img/beeldvorming.svg">` enz. | vervang door bv. `assets/img/station-1.jpg` |
-| Galerij | sectie "In beeld" | vervang elke `foto-placeholder.svg` |
-| Teamfoto | sectie "Wie zijn wij?" | vervang `team.svg` |
-
-Tips:
-- Foto's: JPG of WebP, max. ca. 1600 px breed, liefst < 400 kB per stuk.
-- Video: GitHub weigert bestanden > 100 MB en waarschuwt vanaf 50 MB. Grotere video? Zet hem op YouTube/Vimeo
-  en gebruik de `<iframe>` die al als commentaar in `index.html` staat.
-- Pas ook de `alt="..."`-tekst aan (beschrijving van de foto).
+- Foto's staan in `assets/img/` (JPG, max. 1600 px breed, ca. 100 kB per stuk).
+- De video staat in `assets/video/vertual-impressie.mp4`. GitHub weigert bestanden > 100 MB;
+  een grotere video zet je op YouTube/Vimeo en gebruikt de `<iframe>` die als commentaar in `index.html` staat.
+- Foto toevoegen aan de galerij: kopieer een `<figure>`-regel in de sectie "In beeld", pas `src`,
+  `alt` (beschrijving) en `<figcaption>` (bijschrift) aan. `gallery__item--wide` = dubbel zo breed.
+- De teamfoto ontbreekt nog: vervang `assets/img/team.svg` in de sectie "Wie zijn wij?".
 
 ## Lokaal bekijken
 
