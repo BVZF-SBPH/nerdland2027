@@ -36,6 +36,7 @@
         <a href="#fotos">In beeld</a>
         <a href="#bhpa">Over BHPA</a>
       </nav>
+      <input type="checkbox" id="theme-toggle" class="theme-toggle" aria-label="Wissel tussen licht en donker thema" title="Licht / donker">
       <a class="btn btn--outline btn--small" href="https://www.bhpa.eu" target="_blank" rel="noopener">BHPA.eu</a>
     </div>
   </header>
@@ -107,14 +108,14 @@
     <section class="journey" id="traject" aria-labelledby="journey-title">
       <h2 id="journey-title">De patient journey</h2>
       <ol class="journey__steps">
-        <li><span class="journey__dot"></span><strong>Diagnose</strong><small>Scannen &amp; in beeld brengen</small></li>
-        <li><span class="journey__dot"></span><strong>Behandeling</strong><small>Positioneren &amp; bestralen</small></li>
-        <li><span class="journey__dot"></span><strong>Controle</strong><small>Meten, testen, borgen</small></li>
+        <li style="--c:var(--blue)"><span class="journey__dot"></span><strong>Diagnose</strong><small>Scannen &amp; in beeld brengen</small></li>
+        <li style="--c:var(--coral)"><span class="journey__dot"></span><strong>Behandeling</strong><small>Positioneren &amp; bestralen</small></li>
+        <li style="--c:var(--mint)"><span class="journey__dot"></span><strong>Controle</strong><small>Meten, testen, borgen</small></li>
       </ol>
     </section>
 
     <!-- ===== STATION 1 ===== -->
-    <article class="station">
+    <article class="station" style="--c:var(--blue)">
       <figure class="station__media">
         <!-- Vervang door een foto: bv. assets/img/station-1.jpg -->
         <img src="assets/img/beeldvorming.svg" alt="Station 1: diagnostische en functionele beeldvorming" loading="lazy">
@@ -134,7 +135,7 @@
     </article>
 
     <!-- ===== STATION 2 ===== -->
-    <article class="station station--alt">
+    <article class="station station--alt" style="--c:var(--coral)">
       <figure class="station__media">
         <!-- Vervang door een foto: bv. assets/img/station-2.jpg -->
         <img src="assets/img/radiotherapie.svg" alt="Station 2: radiotherapie in de praktijk" loading="lazy">
@@ -154,7 +155,7 @@
     </article>
 
     <!-- ===== STATION 3 ===== -->
-    <article class="station">
+    <article class="station" style="--c:var(--mint)">
       <figure class="station__media">
         <!-- Vervang door een foto: bv. assets/img/station-3.jpg -->
         <img src="assets/img/kwaliteit.svg" alt="Station 3: kwaliteitsborging en de rol van de medisch fysicus" loading="lazy">
@@ -180,19 +181,19 @@
         <h2 class="on-gradient">Thuis in Sector 42</h2>
         <p class="lead lead--navy">Sciencefiction? Het staat gewoon in je ziekenhuis. Een bestralingsbunker voelt als de cockpit van een ruimteschip: betonnen muren van meters dik, groene lasers in het donker en een toestel van tonnen dat rond de patiënt draait.</p>
         <div class="facts">
-          <div class="fact">
+          <div class="fact" style="--c:var(--blue)">
             <p class="fact__big">60.000&times;</p>
             <p>sterker dan het aardmagnetisch veld: de supergeleidende magneet van een 3&nbsp;tesla-MRI.</p>
           </div>
-          <div class="fact">
+          <div class="fact" style="--c:var(--violet)">
             <p class="fact__big">Antimaterie</p>
             <p>Een PET-scan meet positronen: de antideeltjes van elektronen. Elke dag, in Belgische ziekenhuizen.</p>
           </div>
-          <div class="fact">
+          <div class="fact" style="--c:var(--coral)">
             <p class="fact__big">~c</p>
             <p>Een bestralingstoestel versnelt elektronen tot bijna de lichtsnelheid, in een buis van een meter lang.</p>
           </div>
-          <div class="fact">
+          <div class="fact" style="--c:var(--mint)">
             <p class="fact__big">1&nbsp;mm</p>
             <p>Zo precies mikken we. Medisch fysici controleren dat elke dag opnieuw.</p>
           </div>
@@ -204,17 +205,17 @@
     <section class="practical">
       <h2>Zo werkt het</h2>
       <div class="cards">
-        <div class="card">
+        <div class="card" style="--c:var(--blue)">
           <p class="card__big">50+</p>
           <h3>bezoekers per uur</h3>
           <p>Het grote scherm werkt voor groepen. Daarnaast lopen meerdere stations tegelijk, met medisch fysici die begeleiden en uitleggen.</p>
         </div>
-        <div class="card">
+        <div class="card" style="--c:var(--coral)">
           <p class="card__big">0</p>
           <h3>inschrijvingen nodig</h3>
           <p>Vrij binnenlopen en vertrekken wanneer je wil. Even rondkijken kan, de volledige missie doorlopen ook.</p>
         </div>
-        <div class="card">
+        <div class="card" style="--c:var(--mint)">
           <p class="card__big">3&times;10u</p>
           <h3>doorlopend open</h3>
           <p>Zaterdag, zondag en maandag van 10u tot 20u. Voor jong en oud, met of zonder fysica-voorkennis.</p>
