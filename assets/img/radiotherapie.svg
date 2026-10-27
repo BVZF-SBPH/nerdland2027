@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="55%" r="55%">
+      <stop offset="0" stop-color="#f8a35e" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#14244a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb36b" stop-opacity=".95"/><stop offset="1" stop-color="#f56a84" stop-opacity=".25"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb36b"/><stop offset=".6" stop-color="#f56a84"/><stop offset="1" stop-color="#d966b4"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="#14244a"/>
+  <circle cx="400" cy="440" r="380" fill="url(#glow)"/>
+  <g stroke="#5cf2b0" stroke-width="2" stroke-dasharray="10 8" stroke-opacity=".8">
+    <line x1="0" y1="470" x2="800" y2="470"/><line x1="370" y1="60" x2="370" y2="760"/>
+  </g>
+  <rect x="560" y="120" width="170" height="560" rx="40" fill="url(#body)"/>
+  <circle cx="645" cy="300" r="46" fill="#14244a" opacity=".35"/>
+  <path d="M600 140 H330 a40 40 0 0 0 -40 40 V240 H600 Z" fill="url(#body)"/>
+  <rect x="300" y="236" width="140" height="44" rx="10" fill="#fff9f3"/>
+  <rect x="330" y="278" width="80" height="16" rx="4" fill="#1d3163"/>
+  <path d="M342 294 L398 294 L430 470 L310 470 Z" fill="url(#beam)"/>
+  <rect x="70" y="490" width="560" height="26" rx="13" fill="#fff9f3"/>
+  <rect x="220" y="516" width="120" height="170" rx="10" fill="#1d3163"/>
+  <circle cx="140" cy="458" r="30" fill="#fff9f3"/>
+  <rect x="176" y="440" width="390" height="50" rx="25" fill="#fff9f3"/>
+  <circle cx="370" cy="465" r="18" fill="#f56a84"/>
+  <circle cx="370" cy="465" r="34" fill="none" stroke="#0c1730" stroke-width="3"/>
+  <g fill="#fff9f3">
+    <path d="M120 150l8 22 22 8-22 8-8 22-8-22-22-8 22-8z"/>
+    <path d="M110 640l6 16 16 6-16 6-6 16-6-16-16-6 16-6z"/>
+  </g>
+</svg>
