@@ -8,7 +8,7 @@ Pure HTML + CSS, geen JavaScript, geen build-stap.
 ```
 index.html               de pagina
 css/style.css            alle opmaak
-assets/img/              foto's (JPG), favicon en teamplaatshouder (SVG)
+assets/img/              foto's (JPG/WebP) en favicon (SVG)
 assets/video/            vertual-impressie.mp4
 ```
 
@@ -19,7 +19,6 @@ assets/video/            vertual-impressie.mp4
   een grotere video zet je op YouTube/Vimeo en gebruikt de `<iframe>` die als commentaar in `index.html` staat.
 - Foto toevoegen aan de galerij: kopieer een `<figure>`-regel in de sectie "In beeld", pas `src`,
   `alt` (beschrijving) en `<figcaption>` (bijschrift) aan. `gallery__item--wide` = dubbel zo breed.
-- De teamfoto ontbreekt nog: vervang `assets/img/team.svg` in de sectie "Wie zijn wij?".
 
 ## Lokaal bekijken
 
