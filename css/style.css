@@ -662,3 +662,20 @@ strong { color: var(--ink); }
   .marquee__track { animation: none; }
   .btn, .gallery__item img, .theme-toggle::before, body { transition: none; }
 }
+
+/* ---------- Partner (ORFIT) ---------- */
+.partner {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin: 1.4em 0 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--c, var(--blue));
+  border-radius: 0 12px 12px 0;
+  background: var(--surface-2);
+}
+.partner img { flex: 0 0 110px; width: 110px; height: 110px; object-fit: cover; border-radius: 10px; }
+.partner p { margin: 0; }
+@media (max-width: 520px) {
+  .partner { flex-direction: column; align-items: flex-start; }
+}
