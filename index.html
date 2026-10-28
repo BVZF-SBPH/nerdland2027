@@ -20,8 +20,8 @@
   <header class="header">
     <div class="header__top marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>15, 16 &amp; 17 mei 2027</span><span>Domein Puyenbroeck, Wachtebeke</span><span>Sector 42</span><span>Missie: tumor onder controle</span>
-        <span>15, 16 &amp; 17 mei 2027</span><span>Domein Puyenbroeck, Wachtebeke</span><span>Sector 42</span><span>Missie: tumor onder controle</span>
+        <span>15, 16 &amp; 17 mei 2027</span><span>Domein Puyenbroeck, Wachtebeke</span><span>Missie: tumor onder controle</span>
+        <span>15, 16 &amp; 17 mei 2027</span><span>Domein Puyenbroeck, Wachtebeke</span><span>Missie: tumor onder controle</span>
       </div>
     </div>
     <div class="header__bar">
@@ -32,7 +32,7 @@
       <nav class="nav" aria-label="Hoofdmenu">
         <a href="#idee">Het idee</a>
         <a href="#traject">Traject</a>
-        <a href="#sector42">Sector 42</a>
+        <a href="#nerdland">Op Nerdland</a>
         <a href="#fotos">In beeld</a>
         <a href="#bhpa">Over BHPA</a>
       </nav>
@@ -51,7 +51,7 @@
           <span class="hero__title-small">Missie:</span>
           Tumor onder controle
         </h1>
-        <p class="hero__lead">Maxwell, Einstein en Dirac aan het werk in het ziekenhuis.</p>
+        <p class="hero__lead">Fysica aan het werk in het ziekenhuis.</p>
         <p class="hero__sub">Medische fysica laat deeltjesversnellers, supergeleidende magneten en antimaterie samenwerken voor één doel: de tumor raken, tot op de millimeter, en het gezonde weefsel sparen.</p>
         <ul class="hero__chips" aria-label="Fysica in cijfers">
           <li style="--c:var(--blue)"><b>3&nbsp;T</b> MRI-magneet</li>
@@ -61,7 +61,7 @@
         </ul>
         <dl class="hero__meta">
           <dt>Wanneer</dt><dd>15&ndash;17 mei 2027 &middot; za, zo, ma &middot; 10u&ndash;20u</dd>
-          <dt>Waar</dt><dd>Domein Puyenbroeck &middot; themazone Sector&nbsp;42</dd>
+          <dt>Waar</dt><dd>Domein Puyenbroeck, Wachtebeke</dd>
         </dl>
         <div class="btn-row">
           <a class="btn" href="#traject">Start de missie</a>
@@ -116,7 +116,8 @@
 
     <!-- ===== STATION 1 ===== -->
     <article class="station" style="--c:var(--blue)">
-      <figure class="station__media">
+      <figure class="station__media station__media--fit">
+        <span class="station__media-bg" style="background-image: url('assets/img/vertual-ct-reconstructie.jpg')" aria-hidden="true"></span>
         <img src="assets/img/vertual-ct-reconstructie.jpg" alt="3D-reconstructie van een patiënt uit CT-beelden, met de organen in kleur" loading="lazy">
       </figure>
       <div class="station__text">
@@ -124,19 +125,21 @@
         <p class="eyebrow eyebrow--pink">Station 1 · Diagnose</p>
         <h3>Kijken zonder te snijden</h3>
         <p>Diagnostische en functionele beeldvorming: op een <strong>groot beeldscherm</strong> en met het <a href="https://vertual.co.uk/" target="_blank" rel="noopener">VERTUAL-systeem</a> tonen we hoe <strong>MRI, CT en PET-CT</strong> werken. Waarom ziet een CT botten zo scherp, en een MRI net de zachte weefsels? En hoe laat een PET-CT zien waar een tumor actief is?</p>
+        <p>Je ontmoet hier twee soorten medisch fysici: de <strong>medisch fysici in de diagnostische beeldvorming</strong>, die zorgen voor scherpe beelden met zo weinig mogelijk dosis bij röntgen (RX) en CT, en voor veilige en betrouwbare MRI-scans; en de <strong>medisch fysici in de nucleaire geneeskunde</strong>, die waken over de radioactieve tracers en de PET- en gammacamera's.</p>
         <ul class="checks">
           <li>Draai rond een patiënt in 3D en kijk door het lichaam heen</li>
           <li>Ontdek wat elke scanner &lsquo;ziet&rsquo; en waarom je ze combineert</li>
           <li>Zie hoe artsen en fysici de tumor afbakenen voor de behandeling</li>
         </ul>
-        <ul class="tags"><li>MRI</li><li>CT</li><li>PET-CT</li><li>Groot scherm</li><li>VERTUAL</li></ul>
+        <ul class="tags"><li>RX</li><li>MRI</li><li>CT</li><li>PET-CT</li><li>Nucleaire geneeskunde</li><li>Groot scherm</li><li>VERTUAL</li></ul>
       </div>
     </article>
 
     <!-- ===== STATION 2 ===== -->
     <article class="station station--alt" style="--c:var(--coral)">
-      <figure class="station__media">
-        <img src="assets/img/vertual-groot-scherm.jpg" alt="Mensen met een 3D-bril voor het grote VERTUAL-scherm, één van hen bedient het bestralingstoestel" loading="lazy">
+      <figure class="station__media station__media--fit">
+        <span class="station__media-bg" style="background-image: url('assets/img/vert.jpg')" aria-hidden="true"></span>
+        <img src="assets/img/vert.jpg" alt="Twee mensen met een 3D-bril bij het virtuele bestralingstoestel: de bundel gaat door een patiënt met de organen in kleur, één van hen bedient het toestel met een afstandsbediening" loading="lazy">
       </figure>
       <div class="station__text">
         <p class="station__num">02</p>
@@ -148,7 +151,15 @@
           <li>Laat het toestel rond de patiënt draaien</li>
           <li>Zie hoe de stralenbundel de tumor raakt en gezond weefsel spaart</li>
         </ul>
-        <ul class="tags"><li>Radiotherapie</li><li>Lineaire versneller</li><li>Hands-on</li><li>VERTUAL</li></ul>
+        <aside class="partner">
+          <p><strong>Maak je eigen masker, met de Belgische firma <a href="https://www.orfit.com/" target="_blank" rel="noopener">ORFIT</a>.</strong> Tijdens een bestraling ligt het hoofd van de patiënt stil dankzij een thermoplastisch masker op maat. Op het festival maken <strong>kinderen zelf zo&rsquo;n masker</strong>: ze vormen een klein stuk ORFIT-materiaal over het hoofd van een pop, net zoals dat in het ziekenhuis gebeurt bij een echte patiënt.</p>
+          <div class="partner__photos">
+            <img src="assets/img/orfit-masker-1.webp" alt="Thermoplastisch masker met geschilderde bloemen, op de tafel van een bestralingstoestel" loading="lazy">
+            <img src="assets/img/orfit-masker-2.webp" alt="Twee bestralingsmaskers beschilderd als Minnie en Mickey Mouse" loading="lazy">
+            <img src="assets/img/orfit-masker-3.webp" alt="Rij bestralingsmaskers beschilderd als superhelden en tekenfilmfiguren" loading="lazy">
+          </div>
+        </aside>
+        <ul class="tags"><li>Radiotherapie</li><li>Lineaire versneller</li><li>Hands-on</li><li>VERTUAL</li><li>ORFIT</li></ul>
       </div>
     </article>
 
@@ -171,11 +182,11 @@
       </div>
     </article>
 
-    <!-- ===== SECTOR 42 ===== -->
-    <section class="gradient-block" id="sector42">
+    <!-- ===== THUIS OP NERDLAND ===== -->
+    <section class="gradient-block" id="nerdland">
       <div class="gradient-block__inner">
         <p class="eyebrow eyebrow--navy">Themazone</p>
-        <h2 class="on-gradient">Thuis in Sector 42</h2>
+        <h2 class="on-gradient">Thuis op Nerdland</h2>
         <p class="lead lead--navy">Sciencefiction? Het staat gewoon in je ziekenhuis. Een bestralingsbunker voelt als de cockpit van een ruimteschip: betonnen muren van meters dik, groene lasers in het donker en een toestel van tonnen dat rond de patiënt draait.</p>
         <div class="facts">
           <div class="fact" style="--c:var(--blue)">
@@ -198,28 +209,6 @@
       </div>
     </section>
 
-    <!-- ===== ZO WERKT HET ===== -->
-    <section class="practical">
-      <h2>Zo werkt het</h2>
-      <div class="cards">
-        <div class="card" style="--c:var(--blue)">
-          <p class="card__big">50+</p>
-          <h3>bezoekers per uur</h3>
-          <p>Het grote scherm werkt voor groepen. Daarnaast lopen meerdere stations tegelijk, met medisch fysici die begeleiden en uitleggen.</p>
-        </div>
-        <div class="card" style="--c:var(--coral)">
-          <p class="card__big">0</p>
-          <h3>inschrijvingen nodig</h3>
-          <p>Vrij binnenlopen en vertrekken wanneer je wil. Even rondkijken kan, de volledige missie doorlopen ook.</p>
-        </div>
-        <div class="card" style="--c:var(--mint)">
-          <p class="card__big">3&times;10u</p>
-          <h3>doorlopend open</h3>
-          <p>Zaterdag, zondag en maandag van 10u tot 20u. Voor jong en oud, met of zonder fysica-voorkennis.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== FOTO'S ===== -->
     <section class="gallery" id="fotos">
       <h2>In beeld</h2>
@@ -236,7 +225,7 @@
     </section>
 
     <!-- ===== OVER BHPA ===== -->
-    <section class="split split--reverse" id="bhpa">
+    <section class="split split--single" id="bhpa">
       <div class="split__text">
         <h2>Wie zijn wij?</h2>
         <p class="lead">BHPA is de Belgische vereniging van ziekenhuisfysici (BVZF&nbsp;&middot;&nbsp;SBPH).</p>
@@ -246,10 +235,6 @@
           <a class="btn" href="https://www.bhpa.eu" target="_blank" rel="noopener">Naar BHPA.eu</a>
           <a class="btn btn--outline" href="https://vertual.co.uk/" target="_blank" rel="noopener">Over VERTUAL</a>
         </div>
-      </div>
-      <div class="split__media">
-        <!-- Vervang door een teamfoto: bv. assets/img/team.jpg -->
-        <img class="rounded" src="assets/img/team.svg" alt="Het BHPA-team" loading="lazy">
       </div>
     </section>
 
