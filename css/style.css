@@ -497,7 +497,7 @@ strong { color: var(--ink); }
   text-transform: uppercase;
 }
 
-/* ---------- Gradient block (Sector 42) ---------- */
+/* ---------- Gradient block (Thuis op Nerdland) ---------- */
 .gradient-block {
   margin-top: clamp(56px, 9vw, 110px);
   background: var(--gradient);
