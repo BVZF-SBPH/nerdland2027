@@ -535,30 +535,6 @@ strong { color: var(--ink); }
   overflow-wrap: anywhere;
 }
 
-/* ---------- Practical cards ---------- */
-.practical {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: clamp(56px, 9vw, 110px) var(--gutter) 0;
-}
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
-.card {
-  padding: 30px;
-  border: 1.5px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
-}
-.card__big {
-  margin: 0 0 .1em;
-  color: var(--c, var(--blue));
-  font-size: clamp(2.6rem, 5vw, 3.8rem);
-  font-weight: 900;
-  font-stretch: 125%;
-  line-height: 1.05;
-}
-.card h3 { font-size: 1.1rem; }
-.card p:last-child { margin: 0; }
-
 /* ---------- Gallery ---------- */
 .gallery {
   max-width: var(--maxw);
@@ -633,7 +609,6 @@ strong { color: var(--ink); }
   .hero { grid-template-columns: 1fr; }
   .hero__visual { max-width: 640px; margin-left: 24px; }
   .facts { grid-template-columns: 1fr 1fr; }
-  .cards { grid-template-columns: 1fr; }
   .gallery__grid { grid-template-columns: 1fr 1fr; }
 }
 
