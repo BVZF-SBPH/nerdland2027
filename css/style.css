@@ -80,6 +80,7 @@ body {
 }
 
 img, video, iframe { display: block; max-width: 100%; }
+img { height: auto; }
 img { filter: var(--img-filter); }
 
 a { color: var(--blue); text-decoration-thickness: 2px; text-underline-offset: 3px; }
@@ -166,6 +167,33 @@ strong { color: var(--ink); }
 }
 .theme-toggle:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
 
+/* ---------- Taalkeuze NL / EN ---------- */
+.header__tools { display: flex; flex: none; align-items: center; gap: 10px; }
+.lang {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+}
+.lang a {
+  min-width: 2.4em;
+  padding: .2em .65em;
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: .78rem;
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: .06em;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.lang a[aria-current="page"] { background: var(--ink); color: var(--bg); }
+.lang a:not([aria-current="page"]):hover { background: var(--surface-2); color: var(--blue); }
+.lang a:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+
 /* ---------- Marquee band ---------- */
 .marquee {
   overflow: hidden;
@@ -212,9 +240,11 @@ strong { color: var(--ink); }
   display: inline-flex;
   align-items: baseline;
   gap: .35em;
+  flex: none;
   margin: 0;
   color: var(--ink);
   text-decoration: none;
+  white-space: nowrap;
 }
 .logo:hover { color: var(--ink); }
 .logo__mark {
@@ -228,32 +258,52 @@ strong { color: var(--ink); }
 }
 .logo__script { color: var(--coral); font-family: var(--font-script); font-size: 1.8rem; line-height: 1; }
 
-.nav { display: flex; flex-wrap: wrap; gap: 4px 26px; margin-left: auto; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-left: auto; }
 .nav a {
   color: var(--ink);
   font-weight: 800;
   font-stretch: 125%;
-  font-size: .9rem;
+  font-size: .84rem;
   letter-spacing: .04em;
   text-transform: uppercase;
   text-decoration: none;
 }
 .nav a:hover { color: var(--blue); }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (apart blok met bewegende gloed) ---------- */
+.hero-wrap { max-width: var(--maxw); margin: 0 auto; padding: clamp(16px, 3vw, 32px) var(--gutter) 0; }
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
   display: grid;
   grid-template-columns: 1.05fr 1fr;
-  gap: clamp(32px, 5vw, 72px);
+  gap: clamp(20px, 3vw, 36px) clamp(28px, 4vw, 56px);
   align-items: center;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: clamp(40px, 7vw, 96px) var(--gutter) clamp(56px, 7vw, 96px);
+  padding: clamp(20px, 3.5vw, 44px);
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  background: var(--gradient);
+  box-shadow: var(--shadow);
 }
+.hero::before {                  /* langzaam draaiende gloed */
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -40%;
+  background:
+    radial-gradient(closest-side at 70% 30%, color-mix(in srgb, var(--blue) 50%, transparent), transparent),
+    radial-gradient(closest-side at 25% 72%, color-mix(in srgb, var(--coral) 38%, transparent), transparent),
+    radial-gradient(closest-side at 82% 82%, color-mix(in srgb, var(--mint) 28%, transparent), transparent);
+  opacity: .6;
+  animation: hero-glow 30s linear infinite;
+  pointer-events: none;
+}
+@keyframes hero-glow { to { transform: rotate(360deg); } }
 .hero__title {
   margin-bottom: .35em;
   color: var(--ink);
-  font-size: clamp(2.6rem, 6vw, 5.2rem);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
   font-weight: 900;
   line-height: .92;
 }
@@ -272,20 +322,38 @@ strong { color: var(--ink); }
   font-stretch: 112%;
   line-height: 1.25;
 }
-.hero__sub { max-width: 34em; }
+.hero__sub { max-width: 34em; margin-bottom: .6em; }
 
-.hero__chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 1.4em 0; padding: 0; list-style: none; }
+/* Drie doelen: kijken, behandelen, beschermen (kleuren = stations) */
+/* De drie onderdelen van het traject: bewust ingetogen */
+.hero__goals { display: grid; gap: 4px; max-width: 36em; margin: 0; padding: 0; list-style: none; font-size: .86rem; line-height: 1.4; opacity: .9; }
+.hero__goals li { padding-left: 10px; border-left: 2px solid var(--c); }
+.hero__goals small {           /* disciplines: genoemd, maar onopvallend */
+  display: block;
+  margin-top: 1px;
+  font-size: .7rem;
+  letter-spacing: .03em;
+  opacity: .6;
+}
+.hero__goals b {
+  color: var(--c);
+  font-weight: 700;
+  font-stretch: 112%;
+}
+
+.hero__chips { display: flex; flex-wrap: wrap; gap: 6px; margin: .9em 0 0; padding: 0; list-style: none; }
 .hero__chips li {
   display: inline-flex;
   align-items: baseline;
-  gap: .45em;
-  padding: .45em .9em;
-  border: 1.5px solid var(--line);
-  border-radius: 10px;
+  gap: .35em;
+  padding: .25em .6em;
+  border: 1px solid var(--line);
+  border-radius: 8px;
   background: var(--card);
-  font-size: .8rem;
+  font-size: .7rem;
+  opacity: .9;
 }
-.hero__chips b { color: var(--c); font-size: 1rem; font-weight: 900; font-stretch: 125%; }
+.hero__chips b { color: var(--c); font-size: .82rem; font-weight: 900; font-stretch: 125%; }
 
 .hero__meta {
   display: grid;
@@ -305,7 +373,24 @@ strong { color: var(--ink); }
 }
 .hero__meta dd { margin: 0; color: var(--ink); font-weight: 600; }
 
-.hero__visual { position: relative; margin: 0 0 40px 24px; }
+.hero__ticket {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  grid-column: 1 / -1;
+  gap: 14px 32px;
+  margin: 0;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+}
+.hero__ticket .hero__meta { margin: 0; font-size: .95rem; }
+.hero__ticket .btn-row { margin: 0; }
+.hero__ticket .btn { padding: .7em 1.2em; font-size: .85rem; }
+
+.hero__visual { position: relative; margin: 0 0 28px 24px; }
 .hero__main {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -332,8 +417,8 @@ strong { color: var(--ink); }
   position: absolute;
   z-index: 2;
   left: -24px;
-  bottom: -40px;
-  width: 32%;
+  bottom: -28px;
+  width: 30%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: 0% 50%;
@@ -356,6 +441,127 @@ strong { color: var(--ink); }
   letter-spacing: .06em;
   text-transform: uppercase;
 }
+
+/* ---------- Wat is straling? (onderaan de hero) ---------- */
+.radiation {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr);
+  gap: 12px clamp(20px, 3vw, 36px);
+  align-items: center;
+  padding-top: clamp(16px, 2.5vw, 24px);
+  border-top: 1px dashed color-mix(in srgb, var(--ink) 25%, transparent);
+}
+.radiation__intro { max-width: 46rem; }
+.radiation__title { margin-bottom: .3em; color: var(--ink); font-size: clamp(1.15rem, 2vw, 1.5rem); }
+.radiation__intro p:last-child { margin: 0; font-size: .88rem; line-height: 1.5; }
+.radiation__intro { grid-column: 1; grid-row: 1 / span 2; }
+.radiation .particles { grid-column: 2; grid-row: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-self: end; }
+.radiation .spectrum { grid-column: 2; grid-row: 2; align-self: start; }
+
+.spectrum {
+  position: relative;
+  margin: 0;
+  padding: 10px 8px 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  overflow-x: auto;
+}
+.spectrum svg { display: block; width: 100%; height: auto; overflow: hidden; }
+.spec-wave { fill: none; stroke-width: 3; stroke-linejoin: round; }
+.spec-wave--glow { stroke: var(--ink); stroke-width: 4.5; filter: drop-shadow(0 0 5px var(--sky)); }
+.spec-pulse { animation: spec-pulse 3.2s linear infinite; }
+@keyframes spec-pulse { to { transform: translateX(1460px); } }
+.spec-zoom { transform-origin: 1127.5px 44px; animation: spec-zoom 16s ease-in-out infinite; }
+@keyframes spec-zoom {
+  0%, 40%   { transform: scale(1); }
+  52%, 80%  { transform: scale(2.2); }
+  92%, 100% { transform: scale(1); }
+}
+.spec-static { animation: spec-fade 16s ease-in-out infinite; }
+@keyframes spec-fade {
+  0%, 40%   { opacity: 1; }
+  46%, 84%  { opacity: 0; }
+  92%, 100% { opacity: 1; }
+}
+.spec-label { fill: var(--text); font: 700 22px var(--font); font-stretch: 112%; text-anchor: middle; }
+.spec-label--vis { fill: var(--ink); }
+.spec-wl { fill: var(--text); opacity: .75; font: 500 15px ui-monospace, Consolas, monospace; text-anchor: middle; }
+.spec-bracket { fill: none; stroke: var(--coral); stroke-width: 2.5; }
+.spec-ion { fill: var(--coral); font: 800 22px var(--font); font-stretch: 125%; letter-spacing: .14em; text-transform: uppercase; text-anchor: middle; }
+.spec-energy { fill: var(--text); opacity: .7; font: 600 15px var(--font); }
+.spec-pin { fill: var(--c); font: 800 18px var(--font); font-stretch: 112%; text-anchor: middle; }
+.spectrum__badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: .3em .8em;
+  border-radius: 999px;
+  background: var(--coral);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 900;
+  font-stretch: 125%;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: spec-badge 16s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes spec-badge {
+  0%, 48%   { opacity: 0; transform: translateY(-4px); }
+  56%, 78%  { opacity: 1; transform: none; }
+  86%, 100% { opacity: 0; }
+}
+
+.particles { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.particles li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 5px 10px 5px 5px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  font-size: .76rem;
+  line-height: 1.3;
+  animation: particle-hi 16s ease-in-out infinite;
+}
+.particles li:nth-child(2) { animation-delay: .5s; }
+.particles li:nth-child(3) { animation-delay: 1s; }
+.particles li > b {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--c) 20%, transparent);
+  color: var(--c);
+  font: 700 1rem/1 Georgia, "Times New Roman", serif;
+}
+.particles strong { margin-right: .3em; color: var(--ink); }
+@keyframes particle-hi {
+  0%, 46%   { border-color: var(--line); transform: none; box-shadow: none; }
+  54%, 80%  { border-color: var(--c); transform: translateY(-3px); box-shadow: 0 10px 26px color-mix(in srgb, var(--c) 28%, transparent); }
+  90%, 100% { border-color: var(--line); transform: none; box-shadow: none; }
+}
+
+/* ---------- Watermerk: stralingsteken dat blijft staan bij scrollen ---------- */
+.watermark {
+  position: fixed;
+  z-index: -1;
+  top: 50%;
+  right: -14vmin;
+  width: min(86vmin, 820px);
+  aspect-ratio: 1;
+  translate: 0 -50%;
+  color: var(--ink);
+  opacity: .05;
+  pointer-events: none;
+}
+.watermark svg { display: block; width: 100%; height: 100%; fill: currentColor; }
 
 /* ---------- Split sections ---------- */
 .split {
@@ -382,13 +588,12 @@ strong { color: var(--ink); }
   box-shadow: var(--shadow);
 }
 .video figcaption { margin-top: .7em; font-size: .85rem; opacity: .75; }
-.rounded { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
 
 /* ---------- Journey strip ---------- */
 .journey {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 var(--gutter) 40px;
+  padding: 0 var(--gutter) 8px;
   text-align: center;
 }
 .journey__steps {
@@ -396,7 +601,7 @@ strong { color: var(--ink); }
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  margin: 32px 0 0;
+  margin: 20px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -424,50 +629,49 @@ strong { color: var(--ink); }
 .journey__steps strong { color: var(--ink); font-stretch: 125%; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
 .journey__steps small { font-size: .85rem; opacity: .75; }
 
-/* ---------- Stations ---------- */
+/* ---------- Stations: één kaart, foto bovenaan uitgelijnd ---------- */
 .station {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  align-items: stretch;
-  max-width: var(--maxw);
-  margin: 40px auto;
-  padding: 0 var(--gutter);
-}
-.station__media {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: clamp(16px, 2.5vw, 32px) 0 clamp(16px, 2.5vw, 32px) clamp(16px, 2.5vw, 32px);
-  overflow: hidden;
-  border-radius: var(--radius) 0 0 var(--radius);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(16px, 2.5vw, 32px) clamp(20px, 3vw, 40px);
+  align-items: start;
+  width: calc(100% - 2 * var(--gutter));
+  max-width: calc(var(--maxw) - 2 * var(--gutter));
+  margin: 24px auto;
+  padding: clamp(16px, 2.5vw, 28px);
+  border-radius: var(--radius);
   background: var(--surface);
   box-shadow: inset 0 5px 0 var(--c, var(--blue));
 }
+.station__media { margin: 0; }
 /* Foto altijd volledig tonen, op zijn eigen verhouding */
-.station__media img { width: 100%; height: auto; border-radius: 12px; }
+.station__media img { width: 100%; height: auto; border-radius: 14px; }
 .station__text {
-  position: relative;
-  padding: clamp(28px, 4vw, 56px);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  background: var(--surface);
-  box-shadow: inset 0 5px 0 var(--c, var(--blue));
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 16px;
+  align-content: start;
 }
-.station--alt { grid-template-columns: 1fr 1.1fr; }
-.station--alt .station__media { order: 2; padding: clamp(16px, 2.5vw, 32px) clamp(16px, 2.5vw, 32px) clamp(16px, 2.5vw, 32px) 0; border-radius: 0 var(--radius) var(--radius) 0; }
-.station--alt .station__text { border-radius: var(--radius) 0 0 var(--radius); }
+.station__text > * { grid-column: 1 / -1; }
+.station__text > .station__num { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+.station__text > .eyebrow { grid-column: 2; align-self: end; margin-bottom: .3em; }
+.station__text > h3 { grid-column: 2; margin-bottom: .2em; }
+.station--alt { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.station--alt .station__media { grid-column: 2; grid-row: 1; }
+.station--alt .station__text { grid-column: 1; grid-row: 1; }
 
 .station__num {
   margin: 0 0 .15em;
   color: transparent;
   -webkit-text-stroke: 2px var(--c, var(--sky));
-  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-size: clamp(2.6rem, 5vw, 4rem);
   font-weight: 900;
   font-stretch: 125%;
   line-height: 1;
 }
 .station h3 { max-width: 12em; }
 
-.checks { margin: 1.2em 0; padding: 0; list-style: none; }
+.checks { margin: .8em 0; padding: 0; list-style: none; }
 .checks li { position: relative; margin-bottom: .55em; padding-left: 1.9em; }
 .checks li::before {
   content: "";
@@ -480,7 +684,7 @@ strong { color: var(--ink); }
   background: radial-gradient(circle, var(--surface) 25%, var(--c, var(--blue)) 27%);
 }
 
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 1.4em 0 0; padding: 0; list-style: none; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 1em 0 0; padding: 0; list-style: none; }
 .tags li {
   padding: .3em .9em;
   border: 1.5px solid var(--line);
@@ -494,42 +698,41 @@ strong { color: var(--ink); }
   text-transform: uppercase;
 }
 
-/* ---------- Gradient block (Thuis op Nerdland) ---------- */
+/* ---------- Gradient block (Thuis op Nerdland): compacte kaart ---------- */
 .gradient-block {
-  margin-top: clamp(56px, 9vw, 110px);
+  width: calc(100% - 2 * var(--gutter));
+  max-width: calc(var(--maxw) - 2 * var(--gutter));
+  margin: clamp(32px, 5vw, 56px) auto 0;
+  border-radius: 28px;
   background: var(--gradient);
   color: var(--ink);
 }
-.gradient-block__inner {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: clamp(56px, 8vw, 100px) var(--gutter);
-}
-.on-gradient { color: var(--ink); font-size: clamp(2.2rem, 6vw, 4.4rem); }
-.lead--navy { max-width: 46em; color: var(--ink); }
+.gradient-block__inner { padding: clamp(22px, 3.5vw, 40px); }
+.on-gradient { color: var(--ink); font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.lead--navy { max-width: 52em; margin-bottom: 0; color: var(--ink); font-size: 1.05rem; }
 .facts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-top: 40px;
+  gap: 12px;
+  margin-top: 20px;
 }
 .fact {
-  padding: 24px;
-  border-top: 5px solid var(--c, var(--blue));
-  border-radius: var(--radius);
+  padding: 14px 16px;
+  border-top: 4px solid var(--c, var(--blue));
+  border-radius: 16px;
   background: var(--card);
   box-shadow: var(--shadow);
 }
-.fact p { margin: 0; font-size: .95rem; line-height: 1.45; }
+.fact p { margin: 0; font-size: .88rem; line-height: 1.4; }
 .fact .fact__big {
-  margin-bottom: .35em;
+  margin-bottom: .3em;
   color: var(--c, var(--blue));
-  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.45rem);
   font-weight: 900;
   font-stretch: 125%;
   line-height: 1;
   text-transform: uppercase;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 /* ---------- Gallery ---------- */
@@ -601,10 +804,149 @@ strong { color: var(--ink); }
   opacity: .65;
 }
 
-/* ---------- Responsive ---------- */
+/* ---------- Partner (ORFIT): sub-onderdeel van station 2 ---------- */
+.partner {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 6px clamp(16px, 3vw, 32px);
+  align-items: center;
+  margin: 0;
+  padding: 16px 18px;
+  border-left: 4px solid var(--c, var(--blue));
+  border-radius: 0 14px 14px 0;
+  background: var(--surface-2);
+}
+.partner p { margin: 0; }
+.partner__label {
+  color: var(--c, var(--blue));
+  font-size: .75rem;
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.partner__photos { grid-column: 2; grid-row: 1 / span 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.partner__photos img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
+
+/* ---------- Kleine verwijzing (FANC) ---------- */
+.small-link { margin: 1.2em 0 0; font-size: .85rem; opacity: .85; }
+.small-link a { font-weight: 700; }
+
+/* ---------- Op de boot: hands-on, in het traject van de patiënt ---------- */
+.onboard {
+  position: relative;
+  max-width: 1040px;
+  margin: 28px auto 0;
+  padding: 20px clamp(16px, 3vw, 28px) 34px;
+  overflow: clip;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  text-align: left;
+}
+.onboard__head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.onboard__head .eyebrow { margin: 0 0 .2em; }
+.onboard__head h3 { margin: 0; font-size: clamp(1.2rem, 2.4vw, 1.6rem); }
+.onboard__boat {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--on-blue);
+  animation: bob 4s ease-in-out infinite;
+}
+.onboard__boat svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+@keyframes bob { 50% { transform: translateY(-3px) rotate(-4deg); } }
+
+.onboard__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.onboard__item {
+  display: grid;
+  grid-template-columns: 124px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 12px 8px 8px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--c);
+  border-radius: 14px;
+  background: var(--card);
+  font-size: .86rem;
+  line-height: 1.4;
+}
+.onboard__item img { width: 124px; height: 94px; object-fit: cover; border-radius: 10px; }
+.onboard__item b {
+  display: block;
+  margin-bottom: .15em;
+  color: var(--ink);
+  font-stretch: 125%;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.onboard__waves {                /* golvende rand onderaan: dit gebeurt op het water */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 14px;
+  background: linear-gradient(90deg, var(--blue), var(--sky), var(--mint));
+  opacity: .55;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6 Q10 0 20 6 T40 6 V12 H0Z'/%3E%3C/svg%3E") repeat-x 0 0 / 40px 12px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6 Q10 0 20 6 T40 6 V12 H0Z'/%3E%3C/svg%3E") repeat-x 0 0 / 40px 12px;
+  animation: waves 6s linear infinite;
+}
+@keyframes waves { to { -webkit-mask-position: 40px 0; mask-position: 40px 0; } }
+
+/* ---------- 'Wie zijn wij?': BHPA-zin in de kijker ---------- */
+#bhpa .lead {
+  max-width: 34em;
+  padding: .2em 0 .2em 18px;
+  border-left: 5px solid var(--blue);
+  color: var(--ink);
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  font-weight: 800;
+  font-stretch: 112%;
+  line-height: 1.3;
+}
+
+/* ---------- Hulpklassen (i.p.v. inline style="…", nodig voor de strikte CSP) ---------- */
+.c-blue   { --c: var(--blue); }
+.c-coral  { --c: var(--coral); }
+.c-mint   { --c: var(--mint); }
+.c-sun    { --c: var(--sun); }
+.c-violet { --c: var(--violet); }
+.focus-25 { object-position: 25% 50%; }
+.focus-42 { object-position: 42% 50%; }
+
+/* =========================================================
+   Responsive (van breed naar smal) en 'minder animatie'
+   ========================================================= */
+@media (min-width: 761px) {
+  #idee { grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr); }
+}
+
+@media (max-width: 1180px) {
+  .header__bar { flex-wrap: wrap; gap: 10px 16px; }
+  .nav { order: 3; width: 100%; margin: 0; gap: 4px 22px; }
+  .header__tools { margin-left: auto; }
+}
+
 @media (max-width: 960px) {
   .hero { grid-template-columns: 1fr; }
   .hero__visual { max-width: 640px; margin-left: 24px; }
+  .radiation { grid-template-columns: 1fr; }
+  .radiation__intro, .radiation .particles, .radiation .spectrum { grid-column: 1; grid-row: auto; }
+  .radiation .particles { grid-template-columns: 1fr; }
+  .watermark { right: -30vmin; }
   .facts { grid-template-columns: 1fr 1fr; }
   .gallery__grid { grid-template-columns: 1fr 1fr; }
 }
@@ -612,25 +954,31 @@ strong { color: var(--ink); }
 @media (max-width: 760px) {
   html { scroll-padding-top: 0; }
   .header { position: relative; }
-  .header__bar { flex-wrap: wrap; gap: 10px 16px; }
-  .nav { order: 3; width: 100%; margin: 0; gap: 4px 18px; }
   .nav a { font-size: .78rem; }
-  .theme-toggle { margin-left: auto; }
   .split { grid-template-columns: 1fr; }
-  .station { grid-template-columns: 1fr; }
-  .station__media, .station--alt .station__media { order: 0; padding: 0; border-radius: var(--radius) var(--radius) 0 0; box-shadow: none; }
-  .station__media img { border-radius: 0; }
-  .station__text, .station--alt .station__text { border-radius: 0 0 var(--radius) var(--radius); }
+  .station, .station--alt { grid-template-columns: 1fr; }
+  .station--alt .station__media, .station--alt .station__text { grid-column: auto; grid-row: auto; }
+  .partner { grid-template-columns: 1fr; }
+  .onboard__list { grid-template-columns: 1fr; }
+  .partner__photos { grid-column: auto; grid-row: auto; margin-top: 8px; }
   .journey__steps small { font-size: .75rem; }
   .journey__steps strong { font-size: .8rem; letter-spacing: 0; }
 }
 
+/* Smal scherm: spectrum mag schuiven en start rechts (bij het ioniserende deel) dankzij direction: rtl. */
+@media (max-width: 600px) {
+  .spectrum { direction: rtl; scrollbar-width: thin; }
+  .spectrum svg { direction: ltr; min-width: 560px; }
+  .spectrum__badge { left: auto; right: 14px; }
+}
+
 @media (max-width: 480px) {
+  .header__bar .btn { display: none; }
+  .hero { padding: 20px 16px 24px; border-radius: 24px; }
   .hero__visual { margin-left: 12px; }
   .hero__inset { left: -12px; bottom: -32px; width: 42%; border-width: 4px; }
   .hero__meta { grid-template-columns: 1fr; gap: 0; }
   .hero__meta dd { margin-bottom: .5em; }
-  .header__bar .btn { display: none; }
   .journey__steps { gap: 6px; }
   .journey__steps strong { font-size: .68rem; font-stretch: 100%; }
   .facts { grid-template-columns: 1fr; }
@@ -640,18 +988,8 @@ strong { color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .marquee__track { animation: none; }
-  .btn, .gallery__item img, .theme-toggle::before, body { transition: none; }
+  .marquee__track, .hero::before, .spec-pulse, .spec-zoom, .spec-static, .particles li,
+  .onboard__boat, .onboard__waves { animation: none; }
+  .spectrum__badge { display: none; }
+  .btn, .gallery__item img, .theme-toggle::before, .lang a, body { transition: none; }
 }
-
-/* ---------- Partner (ORFIT) ---------- */
-.partner {
-  margin: 1.4em 0 0;
-  padding: 16px 18px;
-  border-left: 4px solid var(--c, var(--blue));
-  border-radius: 0 12px 12px 0;
-  background: var(--surface-2);
-}
-.partner p { margin: 0; }
-.partner__photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
-.partner__photos img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }

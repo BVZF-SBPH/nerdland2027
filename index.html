@@ -3,18 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Missie: tumor onder controle · BHPA op Nerdland Festival 2027</title>
-  <meta name="description" content="Kruip in de huid van een patiënt en ontdek medische fysica. Een experience van BHPA, de Belgische vereniging van ziekenhuisfysici, voor Nerdland Festival 2027.">
+  <meta name="description" content="Ontdek de medische fysica achter scanners en bestralingstoestellen: van eerste scan tot bestraling. Een experience van BHPA, de Belgische vereniging van ziekenhuisfysici, voor Nerdland Festival 2027.">
   <meta property="og:title" content="Missie: tumor onder controle">
-  <meta property="og:description" content="Kruip in de huid van een patiënt en ontdek medische fysica. BHPA op Nerdland Festival 2027.">
-  <meta property="og:image" content="assets/img/vertual-patient-bundel.jpg">
+  <meta property="og:description" content="Fysica aan het werk in het ziekenhuis. BHPA op Nerdland Festival 2027.">
+  <meta property="og:image" content="https://bvzf-sbph.github.io/nerdland2027/assets/img/vertual-patient-bundel.jpg">
+  <meta property="og:url" content="https://bvzf-sbph.github.io/nerdland2027/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_BE">
+  <link rel="alternate" hreflang="nl" href="https://bvzf-sbph.github.io/nerdland2027/">
+  <link rel="alternate" hreflang="en" href="https://bvzf-sbph.github.io/nerdland2027/en/">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Yellowtail&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Yellowtail&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/start-top.js"></script>
 </head>
 <body>
+  <div class="watermark" aria-hidden="true">
+    <svg viewBox="-100 -100 200 200"><circle r="15"/><path d="M-12.00 -20.78 L-48.00 -83.14 A96 96 0 0 1 48.00 -83.14 L12.00 -20.78 A24 24 0 0 0 -12.00 -20.78 Z M24.00 0.00 L96.00 0.00 A96 96 0 0 1 48.00 83.14 L12.00 20.78 A24 24 0 0 0 24.00 0.00 Z M-12.00 20.78 L-48.00 83.14 A96 96 0 0 1 -96.00 0.00 L-24.00 0.00 A24 24 0 0 0 -12.00 20.78 Z"/></svg>
+  </div>
+
+  <!-- Engelse versie: en/index.html — voeg nieuwe inhoud altijd in beide pagina's toe (zelfde opbouw, zelfde foto's). -->
 
   <!-- ===== HEADER ===== -->
   <header class="header">
@@ -36,7 +49,13 @@
         <a href="#fotos">In beeld</a>
         <a href="#bhpa">Over BHPA</a>
       </nav>
-      <input type="checkbox" id="theme-toggle" class="theme-toggle" aria-label="Wissel tussen licht en donker thema" title="Licht / donker">
+      <div class="header__tools">
+        <nav class="lang" aria-label="Taal / Language">
+          <a href="./" lang="nl" hreflang="nl" aria-current="page">NL</a>
+          <a href="en/" lang="en" hreflang="en" title="English version">EN</a>
+        </nav>
+        <input type="checkbox" id="theme-toggle" class="theme-toggle" aria-label="Wissel tussen licht en donker thema" title="Licht / donker">
+      </div>
       <a class="btn btn--outline btn--small" href="https://www.bhpa.eu" target="_blank" rel="noopener">BHPA.eu</a>
     </div>
   </header>
@@ -44,7 +63,8 @@
   <main id="top">
 
     <!-- ===== HERO ===== -->
-    <section class="hero">
+    <section class="hero-wrap">
+      <div class="hero">
       <div class="hero__text">
         <p class="eyebrow eyebrow--pink">Een experience van BHPA &middot; Nerdland Festival 2027</p>
         <h1 class="hero__title">
@@ -52,13 +72,27 @@
           Tumor onder controle
         </h1>
         <p class="hero__lead">Fysica aan het werk in het ziekenhuis.</p>
-        <p class="hero__sub">Medische fysica laat deeltjesversnellers, supergeleidende magneten en antimaterie samenwerken voor één doel: de tumor raken, tot op de millimeter, en het gezonde weefsel sparen.</p>
-        <ul class="hero__chips" aria-label="Fysica in cijfers">
-          <li style="--c:var(--blue)"><b>3&nbsp;T</b> MRI-magneet</li>
-          <li style="--c:var(--violet)"><b>511&nbsp;keV</b> antimaterie in PET</li>
-          <li style="--c:var(--coral)"><b>6&nbsp;MV</b> versneller</li>
-          <li style="--c:var(--mint)"><b>&plusmn;1&nbsp;mm</b> precisie</li>
+        <p class="hero__sub">Volg het traject van een oncologische patiënt: van de eerste scan tot de laatste bestraling. Onderweg zie je hoe medische fysica deeltjesversnellers, supergeleidende magneten, antimaterie, deeltjes en golven laat samenwerken:</p>
+        <ul class="hero__goals">
+          <li class="c-blue"><b>Kijken</b> in het lichaam, zonder te snijden.<small>radiologie · MRI · nucleaire geneeskunde</small></li>
+          <li class="c-coral"><b>Behandelen</b>: de tumor raken en het gezonde weefsel sparen.<small>radiotherapie · nucleaire geneeskunde</small></li>
+          <li class="c-mint"><b>Beschermen</b>: veilig voor patiënt én zorgverlener.<small>fysische controle · radiologie · nucleaire geneeskunde · radiotherapie</small></li>
         </ul>
+        <ul class="hero__chips" aria-label="Fysica in cijfers">
+          <li class="c-blue"><b>tesla</b> MRI-magneet</li>
+          <li class="c-sun"><b>kilovolt</b> röntgenbuis</li>
+          <li class="c-violet"><b>kilo-elektronvolt</b> antimaterie in PET</li>
+          <li class="c-coral"><b>megavolt</b> versneller</li>
+        </ul>
+      </div>
+
+      <figure class="hero__visual">
+        <img width="1439" height="1015" class="hero__main" fetchpriority="high" src="assets/img/dosisverdeling.jpg" alt="Dosisverdeling op een CT-beeld van het bekken: rood is de hoge dosis op de tumor, blauw weinig dosis">
+        <img width="691" height="557" class="hero__inset" src="assets/img/mri-hersentumor.jpg" alt="MRI-beeld van de hersenen waarop een tumor oplicht">
+        <figcaption class="hero__tag">Dosisplan &middot; rood = 100&nbsp;%</figcaption>
+      </figure>
+
+      <div class="hero__ticket">
         <dl class="hero__meta">
           <dt>Wanneer</dt><dd>15&ndash;17 mei 2027 &middot; za, zo, ma &middot; 10u&ndash;20u</dd>
           <dt>Waar</dt><dd>Domein Puyenbroeck, Wachtebeke</dd>
@@ -69,19 +103,55 @@
         </div>
       </div>
 
-      <figure class="hero__visual">
-        <img class="hero__main" src="assets/img/dosisverdeling.jpg" alt="Dosisverdeling op een CT-beeld van het bekken: rood is de hoge dosis op de tumor, blauw weinig dosis">
-        <img class="hero__inset" src="assets/img/mri-hersentumor.jpg" alt="MRI-beeld van de hersenen waarop een tumor oplicht">
-        <figcaption class="hero__tag">Dosisplan &middot; rood = 100&nbsp;%</figcaption>
-      </figure>
+      <div class="radiation">
+        <div class="radiation__intro">
+          <p class="eyebrow eyebrow--pink">Eerst even: wat is straling?</p>
+          <h2 class="radiation__title">Straling, ingezet voor het goede doel.</h2>
+          <p>Radiogolven, warmte, licht: allemaal straling. Helemaal rechts in het spectrum, en bij radioactieve atomen, wordt ze <strong>ioniserend</strong>: energierijk genoeg om elektronen uit atomen te slaan. Klinkt eng, maar in het ziekenhuis zetten we straling gericht in: om in je lichaam te kijken en om tumoren te vernietigen. Altijd volgens het <strong>ALARA-principe</strong>: zo weinig als redelijkerwijs mogelijk.</p>
+        </div>
+        <ul class="particles" aria-label="Soorten ioniserende straling">
+          <li class="c-coral"><b aria-hidden="true">α</b><span><strong>Alfa</strong> heliumkern, papier houdt ze tegen</span></li>
+          <li class="c-sun"><b aria-hidden="true">β</b><span><strong>Bèta</strong> elektron, enkele mm aluminium</span></li>
+          <li class="c-blue"><b aria-hidden="true">γ</b><span><strong>Gamma &amp; röntgen</strong> foton, lood of beton</span></li>
+        </ul>
+        <figure class="spectrum" role="img" aria-label="Het elektromagnetische spectrum, van radiogolven via infrarood, zichtbaar licht en UV tot röntgen- en gammastralen. De golven worden steeds korter en energierijker; vanaf het ultraviolet is de straling ioniserend. Het ziekenhuis gebruikt radiogolven voor MRI, röntgenstralen voor CT en gammastralen voor PET en radiotherapie.">
+          <svg viewBox="0 0 1200 250" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="spec-grad" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="1160" y2="0"><stop offset="0.000" stop-color="#5b6b9a"/><stop offset="0.339" stop-color="#7a3550"/><stop offset="0.482" stop-color="#ff3b30"/><stop offset="0.496" stop-color="#ff9500"/><stop offset="0.509" stop-color="#ffd60a"/><stop offset="0.522" stop-color="#34c759"/><stop offset="0.536" stop-color="#0a84ff"/><stop offset="0.554" stop-color="#8e44ff"/><stop offset="0.661" stop-color="#7c5cff"/><stop offset="0.786" stop-color="#4fb3ff"/><stop offset="1.000" stop-color="#9ff0ff"/></linearGradient>
+              <linearGradient id="spec-pulse-grad"><stop offset="0" stop-color="#000"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+              <mask id="spec-pulse-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="250">
+                <rect class="spec-pulse" x="-260" y="0" width="260" height="250" fill="url(#spec-pulse-grad)"/>
+              </mask>
+            </defs>
+            <g class="spec-zoom">
+              <path class="spec-wave" d="M40.0 46.0 L51.1 38.5 L61.8 31.9 L72.2 26.9 L82.2 24.3 L91.8 24.3 L101.2 26.9 L110.3 31.9 L119.1 38.5 L127.7 46.0 L136.0 53.5 L144.1 60.1 L152.0 65.1 L159.7 67.7 L167.1 67.7 L174.5 65.1 L181.6 60.1 L188.6 53.5 L195.4 46.0 L202.0 38.5 L208.5 31.9 L214.9 26.9 L221.2 24.3 L227.3 24.3 L233.3 26.9 L239.2 31.9 L244.9 38.5 L250.6 46.0 L256.1 53.5 L261.6 60.1 L266.9 65.1 L272.2 67.7 L277.4 67.7 L282.5 65.1 L287.5 60.1 L292.4 53.5 L297.2 46.0 L302.0 38.5 L306.7 31.9 L311.3 26.9 L315.8 24.3 L320.3 24.3 L324.7 26.9 L329.1 31.9 L333.4 38.5 L337.6 46.0 L341.8 53.5 L345.9 60.1 L349.9 65.1 L353.9 67.7 L357.9 67.7 L361.8 65.1 L365.6 60.1 L369.4 53.5 L373.2 46.0 L376.9 38.5 L380.6 31.9 L384.2 26.9 L387.8 24.3 L391.3 24.3 L394.8 26.9 L398.2 31.9 L401.7 38.5 L405.0 46.0 L408.4 53.5 L411.7 60.1 L414.9 65.1 L418.2 67.7 L421.4 67.7 L424.5 65.1 L427.7 60.1 L430.8 53.5 L433.8 46.0 L436.9 38.5 L439.9 31.9 L442.9 26.9 L445.8 24.3 L448.7 24.3 L451.6 26.9 L454.5 31.9 L457.3 38.5 L460.1 46.0 L462.9 53.5 L465.7 60.1 L468.4 65.1 L471.1 67.7 L473.8 67.7 L476.5 65.1 L479.1 60.1 L481.7 53.5 L484.3 46.0 L486.9 38.5 L489.4 31.9 L492.0 26.9 L494.5 24.3 L497.0 24.3 L499.4 26.9 L501.9 31.9 L504.3 38.5 L506.7 46.0 L509.1 53.5 L511.5 60.1 L513.8 65.1 L516.1 67.7 L518.5 67.7 L520.8 65.1 L523.0 60.1 L525.3 53.5 L527.6 46.0 L529.8 38.5 L532.0 31.9 L534.2 26.9 L536.4 24.3 L538.5 24.3 L540.7 26.9 L542.8 31.9 L544.9 38.5 L547.1 46.0 L549.1 53.5 L551.2 60.1 L553.3 65.1 L555.3 67.7 L557.4 67.7 L559.4 65.1 L561.4 60.1 L563.4 53.5 L565.4 46.0 L567.3 38.5 L569.3 31.9 L571.2 26.9 L573.2 24.3 L575.1 24.3 L577.0 26.9 L578.9 31.9 L580.8 38.5 L582.7 46.0 L584.5 53.5 L586.4 60.1 L588.2 65.1 L590.0 67.7 L591.8 67.7 L593.6 65.1 L595.4 60.1 L597.2 53.5 L599.0 46.0 L600.8 38.5 L602.5 31.9 L604.3 26.9 L606.0 24.3 L607.7 24.3 L609.4 26.9 L611.1 31.9 L612.8 38.5 L614.5 46.0 L616.2 53.5 L617.8 60.1 L619.5 65.1 L621.1 67.7 L622.8 67.7 L624.4 65.1 L626.0 60.1 L627.7 53.5 L629.3 46.0 L630.8 38.5 L632.4 31.9 L634.0 26.9 L635.6 24.3 L637.1 24.3 L638.7 26.9 L640.2 31.9 L641.8 38.5 L643.3 46.0 L644.8 53.5 L646.4 60.1 L647.9 65.1 L649.4 67.7 L650.9 67.7 L652.3 65.1 L653.8 60.1 L655.3 53.5 L656.8 46.0 L658.2 38.5 L659.7 31.9 L661.1 26.9 L662.5 24.3 L664.0 24.3 L665.4 26.9 L666.8 31.9 L668.2 38.5 L669.6 46.0 L671.0 53.5 L672.4 60.1 L673.8 65.1 L675.2 67.7 L676.5 67.7 L677.9 65.1 L679.3 60.1 L680.6 53.5 L682.0 46.0 L683.3 38.5 L684.7 31.9 L686.0 26.9 L687.3 24.3 L688.6 24.3 L689.9 26.9 L691.2 31.9 L692.5 38.5 L693.8 46.0 L695.1 53.5 L696.4 60.1 L697.7 65.1 L699.0 67.7 L700.2 67.7 L701.5 65.1 L702.8 60.1 L704.0 53.5 L705.3 46.0 L706.5 38.5 L707.7 31.9 L709.0 26.9 L710.2 24.3 L711.4 24.3 L712.6 26.9 L713.8 31.9 L715.0 38.5 L716.3 46.0 L717.4 53.5 L718.6 60.1 L719.8 65.1 L721.0 67.7 L722.2 67.7 L723.4 65.1 L724.5 60.1 L725.7 53.5 L726.9 46.0 L728.0 38.5 L729.2 31.9 L730.3 26.9 L731.5 24.3 L732.6 24.3 L733.7 26.9 L734.9 31.9 L736.0 38.5 L737.1 46.0 L738.2 53.5 L739.4 60.1 L740.5 65.1 L741.6 67.7 L742.7 67.7 L743.8 65.1 L744.9 60.1 L746.0 53.5 L747.0 46.0 L748.1 38.5 L749.2 31.9 L750.3 26.9 L751.3 24.3 L752.4 24.3 L753.5 26.9 L754.5 31.9 L755.6 38.5 L756.6 46.0 L757.7 53.5 L758.7 60.1 L759.8 65.1 L760.8 67.7 L761.9 67.7 L762.9 65.1 L763.9 60.1 L764.9 53.5 L766.0 46.0 L767.0 38.5 L768.0 31.9 L769.0 26.9 L770.0 24.3 L771.0 24.3 L772.0 26.9 L773.0 31.9 L774.0 38.5 L775.0 46.0 L776.0 53.5 L777.0 60.1 L777.9 65.1 L778.9 67.7 L779.9 67.7 L780.9 65.1 L781.8 60.1 L782.8 53.5 L783.8 46.0 L784.7 38.5 L785.7 31.9 L786.6 26.9 L787.6 24.3 L788.5 24.3 L789.5 26.9 L790.4 31.9 L791.4 38.5 L792.3 46.0 L793.2 53.5 L794.1 60.1 L795.1 65.1 L796.0 67.7 L796.9 67.7 L797.8 65.1 L798.8 60.1 L799.7 53.5 L800.6 46.0 L801.5 38.5 L802.4 31.9 L803.3 26.9 L804.2 24.3 L805.1 24.3 L806.0 26.9 L806.9 31.9 L807.8 38.5 L808.6 46.0 L809.5 53.5 L810.4 60.1 L811.3 65.1 L812.2 67.7 L813.0 67.7 L813.9 65.1 L814.8 60.1 L815.6 53.5 L816.5 46.0 L817.4 38.5 L818.2 31.9 L819.1 26.9 L819.9 24.3 L820.8 24.3 L821.6 26.9 L822.5 31.9 L823.3 38.5 L824.2 46.0 L825.0 53.5 L825.8 60.1 L826.7 65.1 L827.5 67.7 L828.3 67.7 L829.2 65.1 L830.0 60.1 L830.8 53.5 L831.6 46.0 L832.5 38.5 L833.3 31.9 L834.1 26.9 L834.9 24.3 L835.7 24.3 L836.5 26.9 L837.3 31.9 L838.1 38.5 L838.9 46.0 L839.7 53.5 L840.5 60.1 L841.3 65.1 L842.1 67.7 L842.9 67.7 L843.7 65.1 L844.5 60.1 L845.3 53.5 L846.1 46.0 L846.8 38.5 L847.6 31.9 L848.4 26.9 L849.2 24.3 L849.9 24.3 L850.7 26.9 L851.5 31.9 L852.3 38.5 L853.0 46.0 L853.8 53.5 L854.5 60.1 L855.3 65.1 L856.1 67.7 L856.8 67.7 L857.6 65.1 L858.3 60.1 L859.1 53.5 L859.8 46.0 L860.6 38.5 L861.3 31.9 L862.1 26.9 L862.8 24.3 L863.5 24.3 L864.3 26.9 L865.0 31.9 L865.7 38.5 L866.5 46.0 L867.2 53.5 L867.9 60.1 L868.7 65.1 L869.4 67.7 L870.1 67.7 L870.8 65.1 L871.6 60.1 L872.3 53.5 L873.0 46.0 L873.7 38.5 L874.4 31.9 L875.1 26.9 L875.8 24.3 L876.5 24.3 L877.3 26.9 L878.0 31.9 L878.7 38.5 L879.4 46.0 L880.1 53.5 L880.8 60.1 L881.5 65.1 L882.2 67.7 L882.8 67.7 L883.5 65.1 L884.2 60.1 L884.9 53.5 L885.6 46.0 L886.3 38.5 L887.0 31.9 L887.7 26.9 L888.3 24.3 L889.0 24.3 L889.7 26.9 L890.4 31.9 L891.1 38.5 L891.7 46.0 L892.4 53.5 L893.1 60.1 L893.7 65.1 L894.4 67.7 L895.1 67.7 L895.7 65.1 L896.4 60.1 L897.1 53.5 L897.7 46.0 L898.4 38.5 L899.0 31.9 L899.7 26.9 L900.3 24.3 L901.0 24.3 L901.7 26.9 L902.3 31.9 L903.0 38.5 L903.6 46.0 L904.2 53.5 L904.9 60.1 L905.5 65.1 L906.2 67.7 L906.8 67.7 L907.5 65.1 L908.1 60.1 L908.7 53.5 L909.4 46.0 L910.0 38.5 L910.6 31.9 L911.3 26.9 L911.9 24.3 L912.5 24.3 L913.2 26.9 L913.8 31.9 L914.4 38.5 L915.0 46.0 L915.7 53.5 L916.3 60.1 L916.9 65.1 L917.5 67.7 L918.1 67.7 L918.7 65.1 L919.4 60.1 L920.0 53.5 L920.6 46.0 L921.2 38.5 L921.8 31.9 L922.4 26.9 L923.0 24.3 L923.6 24.3 L924.2 26.9 L924.8 31.9 L925.4 38.5 L926.0 46.0 L926.6 53.5 L927.2 60.1 L927.8 65.1 L928.4 67.7 L929.0 67.7 L929.6 65.1 L930.2 60.1 L930.8 53.5 L931.4 46.0 L932.0 38.5 L932.6 31.9 L933.2 26.9 L933.8 24.3 L934.3 24.3 L934.9 26.9 L935.5 31.9 L936.1 38.5 L936.7 46.0 L937.2 53.5 L937.8 60.1 L938.4 65.1 L939.0 67.7 L939.6 67.7 L940.1 65.1 L940.7 60.1 L941.3 53.5 L941.8 46.0 L942.4 38.5 L943.0 31.9 L943.6 26.9 L944.1 24.3 L944.7 24.3 L945.2 26.9 L945.8 31.9 L946.4 38.5 L946.9 46.0 L947.5 53.5 L948.1 60.1 L948.6 65.1 L949.2 67.7 L949.7 67.7 L950.3 65.1 L950.8 60.1 L951.4 53.5 L951.9 46.0 L952.5 38.5 L953.0 31.9 L953.6 26.9 L954.1 24.3 L954.7 24.3 L955.2 26.9 L955.8 31.9 L956.3 38.5 L956.9 46.0 L957.4 53.5 L958.0 60.1 L958.5 65.1 L959.0 67.7 L959.6 67.7 L960.1 65.1 L960.6 60.1 L961.2 53.5 L961.7 46.0 L962.2 38.5 L962.8 31.9 L963.3 26.9 L963.8 24.3 L964.4 24.3 L964.9 26.9 L965.4 31.9 L966.0 38.5 L966.5 46.0 L967.0 53.5 L967.5 60.1 L968.1 65.1 L968.6 67.7 L969.1 67.7 L969.6 65.1 L970.1 60.1 L970.7 53.5 L971.2 46.0 L971.7 38.5 L972.2 31.9 L972.7 26.9 L973.2 24.3 L973.8 24.3 L974.3 26.9 L974.8 31.9 L975.3 38.5 L975.8 46.0 L976.3 53.5 L976.8 60.1 L977.3 65.1 L977.8 67.7 L978.3 67.7 L978.9 65.1 L979.4 60.1 L979.9 53.5 L980.4 46.0 L980.9 38.5 L981.4 31.9 L981.9 26.9 L982.4 24.3 L982.9 24.3 L983.4 26.9 L983.9 31.9 L984.4 38.5 L984.8 46.0 L985.3 53.5 L985.8 60.1 L986.3 65.1 L986.8 67.7 L987.3 67.7 L987.8 65.1 L988.3 60.1 L988.8 53.5 L989.3 46.0 L989.8 38.5 L990.2 31.9 L990.7 26.9 L991.2 24.3 L991.7 24.3 L992.2 26.9 L992.7 31.9 L993.1 38.5 L993.6 46.0 L994.1 53.5 L994.6 60.1 L995.1 65.1 L995.5 67.7 L996.0 67.7 L996.5 65.1 L997.0 60.1 L997.5 53.5 L997.9 46.0 L998.4 38.5 L998.9 31.9 L999.3 26.9 L999.8 24.3 L1000.3 24.3 L1000.8 26.9 L1001.2 31.9 L1001.7 38.5 L1002.2 46.0 L1002.6 53.5 L1003.1 60.1 L1003.6 65.1 L1004.0 67.7 L1004.5 67.7 L1005.0 65.1 L1005.4 60.1 L1005.9 53.5 L1006.3 46.0 L1006.8 38.5 L1007.3 31.9 L1007.7 26.9 L1008.2 24.3 L1008.6 24.3 L1009.1 26.9 L1009.6 31.9 L1010.0 38.5 L1010.5 46.0 L1010.9 53.5 L1011.4 60.1 L1011.8 65.1 L1012.3 67.7 L1012.7 67.7 L1013.2 65.1 L1013.6 60.1 L1014.1 53.5 L1014.5 46.0 L1015.0 38.5 L1015.4 31.9 L1015.9 26.9 L1016.3 24.3 L1016.8 24.3 L1017.2 26.9 L1017.7 31.9 L1018.1 38.5 L1018.5 46.0 L1019.0 53.5 L1019.4 60.1 L1019.9 65.1 L1020.3 67.7 L1020.8 67.7 L1021.2 65.1 L1021.6 60.1 L1022.1 53.5 L1022.5 46.0 L1022.9 38.5 L1023.4 31.9 L1023.8 26.9 L1024.2 24.3 L1024.7 24.3 L1025.1 26.9 L1025.6 31.9 L1026.0 38.5 L1026.4 46.0 L1026.8 53.5 L1027.3 60.1 L1027.7 65.1 L1028.1 67.7 L1028.6 67.7 L1029.0 65.1 L1029.4 60.1 L1029.8 53.5 L1030.3 46.0 L1030.7 38.5 L1031.1 31.9 L1031.6 26.9 L1032.0 24.3 L1032.4 24.3 L1032.8 26.9 L1033.2 31.9 L1033.7 38.5 L1034.1 46.0 L1034.5 53.5 L1034.9 60.1 L1035.3 65.1 L1035.8 67.7 L1036.2 67.7 L1036.6 65.1 L1037.0 60.1 L1037.4 53.5 L1037.9 46.0 L1038.3 38.5 L1038.7 31.9 L1039.1 26.9 L1039.5 24.3 L1039.9 24.3 L1040.3 26.9 L1040.7 31.9 L1041.2 38.5 L1041.6 46.0 L1042.0 53.5 L1042.4 60.1 L1042.8 65.1 L1043.2 67.7 L1043.6 67.7 L1044.0 65.1 L1044.4 60.1 L1044.8 53.5 L1045.2 46.0 L1045.6 38.5 L1046.1 31.9 L1046.5 26.9 L1046.9 24.3 L1047.3 24.3 L1047.7 26.9 L1048.1 31.9 L1048.5 38.5 L1048.9 46.0 L1049.3 53.5 L1049.7 60.1 L1050.1 65.1 L1050.5 67.7 L1050.9 67.7 L1051.3 65.1 L1051.7 60.1 L1052.1 53.5 L1052.5 46.0 L1052.9 38.5 L1053.2 31.9 L1053.6 26.9 L1054.0 24.3 L1054.4 24.3 L1054.8 26.9 L1055.2 31.9 L1055.6 38.5 L1056.0 46.0 L1056.4 53.5 L1056.8 60.1 L1057.2 65.1 L1057.6 67.7 L1058.0 67.7 L1058.3 65.1 L1058.7 60.1 L1059.1 53.5 L1059.5 46.0 L1059.9 38.5 L1060.3 31.9 L1060.7 26.9 L1061.0 24.3 L1061.4 24.3 L1061.8 26.9 L1062.2 31.9 L1062.6 38.5 L1063.0 46.0 L1063.3 53.5 L1063.7 60.1 L1064.1 65.1 L1064.5 67.7 L1064.9 67.7 L1065.3 65.1 L1065.6 60.1 L1066.0 53.5 L1066.4 46.0 L1066.8 38.5 L1067.1 31.9 L1067.5 26.9 L1067.9 24.3 L1068.3 24.3 L1068.7 26.9 L1069.0 31.9 L1069.4 38.5 L1069.8 46.0 L1070.2 53.5 L1070.5 60.1 L1070.9 65.1 L1071.3 67.7 L1071.6 67.7 L1072.0 65.1 L1072.4 60.1 L1072.8 53.5 L1073.1 46.0 L1073.5 38.5 L1073.9 31.9 L1074.2 26.9 L1074.6 24.3 L1075.0 24.3 L1075.3 26.9 L1075.7 31.9 L1076.1 38.5 L1076.4 46.0 L1076.8 53.5 L1077.2 60.1 L1077.5 65.1 L1077.9 67.7 L1078.3 67.7 L1078.6 65.1 L1079.0 60.1 L1079.4 53.5 L1079.7 46.0 L1080.1 38.5 L1080.4 31.9 L1080.8 26.9 L1081.2 24.3 L1081.5 24.3 L1081.9 26.9 L1082.2 31.9 L1082.6 38.5 L1083.0 46.0 L1083.3 53.5 L1083.7 60.1 L1084.0 65.1 L1084.4 67.7 L1084.7 67.7 L1085.1 65.1 L1085.5 60.1 L1085.8 53.5 L1086.2 46.0 L1086.5 38.5 L1086.9 31.9 L1087.2 26.9 L1087.6 24.3 L1087.9 24.3 L1088.3 26.9 L1088.6 31.9 L1089.0 38.5 L1089.3 46.0 L1089.7 53.5 L1090.0 60.1 L1090.4 65.1 L1090.7 67.7 L1091.1 67.7 L1091.4 65.1 L1091.8 60.1 L1092.1 53.5 L1092.5 46.0 L1092.8 38.5 L1093.2 31.9 L1093.5 26.9 L1093.9 24.3 L1094.2 24.3 L1094.6 26.9 L1094.9 31.9 L1095.2 38.5 L1095.6 46.0 L1095.9 53.5 L1096.3 60.1 L1096.6 65.1 L1097.0 67.7 L1097.3 67.7 L1097.6 65.1 L1098.0 60.1 L1098.3 53.5 L1098.7 46.0 L1099.0 38.5 L1099.3 31.9 L1099.7 26.9 L1100.0 24.3 L1100.4 24.3 L1100.7 26.9 L1101.0 31.9 L1101.4 38.5 L1101.7 46.0 L1102.0 53.5 L1102.4 60.1 L1102.7 65.1 L1103.1 67.7 L1103.4 67.7 L1103.7 65.1 L1104.1 60.1 L1104.4 53.5 L1104.7 46.0 L1105.1 38.5 L1105.4 31.9 L1105.7 26.9 L1106.1 24.3 L1106.4 24.3 L1106.7 26.9 L1107.0 31.9 L1107.4 38.5 L1107.7 46.0 L1108.0 53.5 L1108.4 60.1 L1108.7 65.1 L1109.0 67.7 L1109.4 67.7 L1109.7 65.1 L1110.0 60.1 L1110.3 53.5 L1110.7 46.0 L1111.0 38.5 L1111.3 31.9 L1111.6 26.9 L1112.0 24.3 L1112.3 24.3 L1112.6 26.9 L1112.9 31.9 L1113.3 38.5 L1113.6 46.0 L1113.9 53.5 L1114.2 60.1 L1114.6 65.1 L1114.9 67.7 L1115.2 67.7 L1115.5 65.1 L1115.9 60.1 L1116.2 53.5 L1116.5 46.0 L1116.8 38.5 L1117.1 31.9 L1117.5 26.9 L1117.8 24.3 L1118.1 24.3 L1118.4 26.9 L1118.7 31.9 L1119.1 38.5 L1119.4 46.0 L1119.7 53.5 L1120.0 60.1 L1120.3 65.1 L1120.6 67.7 L1121.0 67.7 L1121.3 65.1 L1121.6 60.1 L1121.9 53.5 L1122.2 46.0 L1122.5 38.5 L1122.8 31.9 L1123.2 26.9 L1123.5 24.3 L1123.8 24.3 L1124.1 26.9 L1124.4 31.9 L1124.7 38.5 L1125.0 46.0 L1125.3 53.5 L1125.7 60.1 L1126.0 65.1 L1126.3 67.7 L1126.6 67.7 L1126.9 65.1 L1127.2 60.1 L1127.5 53.5 L1127.8 46.0 L1128.1 38.5 L1128.4 31.9 L1128.8 26.9 L1129.1 24.3 L1129.4 24.3 L1129.7 26.9 L1130.0 31.9 L1130.3 38.5 L1130.6 46.0 L1130.9 53.5 L1131.2 60.1 L1131.5 65.1 L1131.8 67.7 L1132.1 67.7 L1132.4 65.1 L1132.7 60.1 L1133.0 53.5 L1133.3 46.0 L1133.6 38.5 L1133.9 31.9 L1134.2 26.9 L1134.6 24.3 L1134.9 24.3 L1135.2 26.9 L1135.5 31.9 L1135.8 38.5 L1136.1 46.0 L1136.4 53.5 L1136.7 60.1 L1137.0 65.1 L1137.3 67.7 L1137.6 67.7 L1137.9 65.1 L1138.2 60.1 L1138.5 53.5 L1138.8 46.0 L1139.1 38.5 L1139.3 31.9 L1139.6 26.9 L1139.9 24.3 L1140.2 24.3 L1140.5 26.9 L1140.8 31.9 L1141.1 38.5 L1141.4 46.0 L1141.7 53.5 L1142.0 60.1 L1142.3 65.1 L1142.6 67.7 L1142.9 67.7 L1143.2 65.1 L1143.5 60.1 L1143.8 53.5 L1144.1 46.0 L1144.4 38.5 L1144.7 31.9 L1144.9 26.9 L1145.2 24.3 L1145.5 24.3 L1145.8 26.9 L1146.1 31.9 L1146.4 38.5 L1146.7 46.0 L1147.0 53.5 L1147.3 60.1 L1147.6 65.1 L1147.9 67.7 L1148.1 67.7 L1148.4 65.1 L1148.7 60.1 L1149.0 53.5 L1149.3 46.0 L1149.6 38.5 L1149.9 31.9 L1150.2 26.9 L1150.4 24.3 L1150.7 24.3 L1151.0 26.9 L1151.3 31.9 L1151.6 38.5 L1151.9 46.0 L1152.2 53.5 L1152.4 60.1 L1152.7 65.1 L1153.0 67.7 L1153.3 67.7 L1153.6 65.1 L1153.9 60.1 L1154.2 53.5 L1154.4 46.0 L1154.7 38.5 L1155.0 31.9 L1155.3 26.9 L1155.6 24.3 L1155.8 24.3 L1156.1 26.9 L1156.4 31.9 L1156.7 38.5 L1157.0 46.0 L1157.3 53.5 L1157.5 60.1 L1157.8 65.1 L1158.1 67.7 L1158.4 67.7 L1158.7 65.1 L1158.9 60.1 L1159.2 53.5 L1159.5 46.0 L1159.8 38.5" stroke="url(#spec-grad)"/>
+              <path class="spec-wave spec-wave--glow" d="M40.0 46.0 L51.1 38.5 L61.8 31.9 L72.2 26.9 L82.2 24.3 L91.8 24.3 L101.2 26.9 L110.3 31.9 L119.1 38.5 L127.7 46.0 L136.0 53.5 L144.1 60.1 L152.0 65.1 L159.7 67.7 L167.1 67.7 L174.5 65.1 L181.6 60.1 L188.6 53.5 L195.4 46.0 L202.0 38.5 L208.5 31.9 L214.9 26.9 L221.2 24.3 L227.3 24.3 L233.3 26.9 L239.2 31.9 L244.9 38.5 L250.6 46.0 L256.1 53.5 L261.6 60.1 L266.9 65.1 L272.2 67.7 L277.4 67.7 L282.5 65.1 L287.5 60.1 L292.4 53.5 L297.2 46.0 L302.0 38.5 L306.7 31.9 L311.3 26.9 L315.8 24.3 L320.3 24.3 L324.7 26.9 L329.1 31.9 L333.4 38.5 L337.6 46.0 L341.8 53.5 L345.9 60.1 L349.9 65.1 L353.9 67.7 L357.9 67.7 L361.8 65.1 L365.6 60.1 L369.4 53.5 L373.2 46.0 L376.9 38.5 L380.6 31.9 L384.2 26.9 L387.8 24.3 L391.3 24.3 L394.8 26.9 L398.2 31.9 L401.7 38.5 L405.0 46.0 L408.4 53.5 L411.7 60.1 L414.9 65.1 L418.2 67.7 L421.4 67.7 L424.5 65.1 L427.7 60.1 L430.8 53.5 L433.8 46.0 L436.9 38.5 L439.9 31.9 L442.9 26.9 L445.8 24.3 L448.7 24.3 L451.6 26.9 L454.5 31.9 L457.3 38.5 L460.1 46.0 L462.9 53.5 L465.7 60.1 L468.4 65.1 L471.1 67.7 L473.8 67.7 L476.5 65.1 L479.1 60.1 L481.7 53.5 L484.3 46.0 L486.9 38.5 L489.4 31.9 L492.0 26.9 L494.5 24.3 L497.0 24.3 L499.4 26.9 L501.9 31.9 L504.3 38.5 L506.7 46.0 L509.1 53.5 L511.5 60.1 L513.8 65.1 L516.1 67.7 L518.5 67.7 L520.8 65.1 L523.0 60.1 L525.3 53.5 L527.6 46.0 L529.8 38.5 L532.0 31.9 L534.2 26.9 L536.4 24.3 L538.5 24.3 L540.7 26.9 L542.8 31.9 L544.9 38.5 L547.1 46.0 L549.1 53.5 L551.2 60.1 L553.3 65.1 L555.3 67.7 L557.4 67.7 L559.4 65.1 L561.4 60.1 L563.4 53.5 L565.4 46.0 L567.3 38.5 L569.3 31.9 L571.2 26.9 L573.2 24.3 L575.1 24.3 L577.0 26.9 L578.9 31.9 L580.8 38.5 L582.7 46.0 L584.5 53.5 L586.4 60.1 L588.2 65.1 L590.0 67.7 L591.8 67.7 L593.6 65.1 L595.4 60.1 L597.2 53.5 L599.0 46.0 L600.8 38.5 L602.5 31.9 L604.3 26.9 L606.0 24.3 L607.7 24.3 L609.4 26.9 L611.1 31.9 L612.8 38.5 L614.5 46.0 L616.2 53.5 L617.8 60.1 L619.5 65.1 L621.1 67.7 L622.8 67.7 L624.4 65.1 L626.0 60.1 L627.7 53.5 L629.3 46.0 L630.8 38.5 L632.4 31.9 L634.0 26.9 L635.6 24.3 L637.1 24.3 L638.7 26.9 L640.2 31.9 L641.8 38.5 L643.3 46.0 L644.8 53.5 L646.4 60.1 L647.9 65.1 L649.4 67.7 L650.9 67.7 L652.3 65.1 L653.8 60.1 L655.3 53.5 L656.8 46.0 L658.2 38.5 L659.7 31.9 L661.1 26.9 L662.5 24.3 L664.0 24.3 L665.4 26.9 L666.8 31.9 L668.2 38.5 L669.6 46.0 L671.0 53.5 L672.4 60.1 L673.8 65.1 L675.2 67.7 L676.5 67.7 L677.9 65.1 L679.3 60.1 L680.6 53.5 L682.0 46.0 L683.3 38.5 L684.7 31.9 L686.0 26.9 L687.3 24.3 L688.6 24.3 L689.9 26.9 L691.2 31.9 L692.5 38.5 L693.8 46.0 L695.1 53.5 L696.4 60.1 L697.7 65.1 L699.0 67.7 L700.2 67.7 L701.5 65.1 L702.8 60.1 L704.0 53.5 L705.3 46.0 L706.5 38.5 L707.7 31.9 L709.0 26.9 L710.2 24.3 L711.4 24.3 L712.6 26.9 L713.8 31.9 L715.0 38.5 L716.3 46.0 L717.4 53.5 L718.6 60.1 L719.8 65.1 L721.0 67.7 L722.2 67.7 L723.4 65.1 L724.5 60.1 L725.7 53.5 L726.9 46.0 L728.0 38.5 L729.2 31.9 L730.3 26.9 L731.5 24.3 L732.6 24.3 L733.7 26.9 L734.9 31.9 L736.0 38.5 L737.1 46.0 L738.2 53.5 L739.4 60.1 L740.5 65.1 L741.6 67.7 L742.7 67.7 L743.8 65.1 L744.9 60.1 L746.0 53.5 L747.0 46.0 L748.1 38.5 L749.2 31.9 L750.3 26.9 L751.3 24.3 L752.4 24.3 L753.5 26.9 L754.5 31.9 L755.6 38.5 L756.6 46.0 L757.7 53.5 L758.7 60.1 L759.8 65.1 L760.8 67.7 L761.9 67.7 L762.9 65.1 L763.9 60.1 L764.9 53.5 L766.0 46.0 L767.0 38.5 L768.0 31.9 L769.0 26.9 L770.0 24.3 L771.0 24.3 L772.0 26.9 L773.0 31.9 L774.0 38.5 L775.0 46.0 L776.0 53.5 L777.0 60.1 L777.9 65.1 L778.9 67.7 L779.9 67.7 L780.9 65.1 L781.8 60.1 L782.8 53.5 L783.8 46.0 L784.7 38.5 L785.7 31.9 L786.6 26.9 L787.6 24.3 L788.5 24.3 L789.5 26.9 L790.4 31.9 L791.4 38.5 L792.3 46.0 L793.2 53.5 L794.1 60.1 L795.1 65.1 L796.0 67.7 L796.9 67.7 L797.8 65.1 L798.8 60.1 L799.7 53.5 L800.6 46.0 L801.5 38.5 L802.4 31.9 L803.3 26.9 L804.2 24.3 L805.1 24.3 L806.0 26.9 L806.9 31.9 L807.8 38.5 L808.6 46.0 L809.5 53.5 L810.4 60.1 L811.3 65.1 L812.2 67.7 L813.0 67.7 L813.9 65.1 L814.8 60.1 L815.6 53.5 L816.5 46.0 L817.4 38.5 L818.2 31.9 L819.1 26.9 L819.9 24.3 L820.8 24.3 L821.6 26.9 L822.5 31.9 L823.3 38.5 L824.2 46.0 L825.0 53.5 L825.8 60.1 L826.7 65.1 L827.5 67.7 L828.3 67.7 L829.2 65.1 L830.0 60.1 L830.8 53.5 L831.6 46.0 L832.5 38.5 L833.3 31.9 L834.1 26.9 L834.9 24.3 L835.7 24.3 L836.5 26.9 L837.3 31.9 L838.1 38.5 L838.9 46.0 L839.7 53.5 L840.5 60.1 L841.3 65.1 L842.1 67.7 L842.9 67.7 L843.7 65.1 L844.5 60.1 L845.3 53.5 L846.1 46.0 L846.8 38.5 L847.6 31.9 L848.4 26.9 L849.2 24.3 L849.9 24.3 L850.7 26.9 L851.5 31.9 L852.3 38.5 L853.0 46.0 L853.8 53.5 L854.5 60.1 L855.3 65.1 L856.1 67.7 L856.8 67.7 L857.6 65.1 L858.3 60.1 L859.1 53.5 L859.8 46.0 L860.6 38.5 L861.3 31.9 L862.1 26.9 L862.8 24.3 L863.5 24.3 L864.3 26.9 L865.0 31.9 L865.7 38.5 L866.5 46.0 L867.2 53.5 L867.9 60.1 L868.7 65.1 L869.4 67.7 L870.1 67.7 L870.8 65.1 L871.6 60.1 L872.3 53.5 L873.0 46.0 L873.7 38.5 L874.4 31.9 L875.1 26.9 L875.8 24.3 L876.5 24.3 L877.3 26.9 L878.0 31.9 L878.7 38.5 L879.4 46.0 L880.1 53.5 L880.8 60.1 L881.5 65.1 L882.2 67.7 L882.8 67.7 L883.5 65.1 L884.2 60.1 L884.9 53.5 L885.6 46.0 L886.3 38.5 L887.0 31.9 L887.7 26.9 L888.3 24.3 L889.0 24.3 L889.7 26.9 L890.4 31.9 L891.1 38.5 L891.7 46.0 L892.4 53.5 L893.1 60.1 L893.7 65.1 L894.4 67.7 L895.1 67.7 L895.7 65.1 L896.4 60.1 L897.1 53.5 L897.7 46.0 L898.4 38.5 L899.0 31.9 L899.7 26.9 L900.3 24.3 L901.0 24.3 L901.7 26.9 L902.3 31.9 L903.0 38.5 L903.6 46.0 L904.2 53.5 L904.9 60.1 L905.5 65.1 L906.2 67.7 L906.8 67.7 L907.5 65.1 L908.1 60.1 L908.7 53.5 L909.4 46.0 L910.0 38.5 L910.6 31.9 L911.3 26.9 L911.9 24.3 L912.5 24.3 L913.2 26.9 L913.8 31.9 L914.4 38.5 L915.0 46.0 L915.7 53.5 L916.3 60.1 L916.9 65.1 L917.5 67.7 L918.1 67.7 L918.7 65.1 L919.4 60.1 L920.0 53.5 L920.6 46.0 L921.2 38.5 L921.8 31.9 L922.4 26.9 L923.0 24.3 L923.6 24.3 L924.2 26.9 L924.8 31.9 L925.4 38.5 L926.0 46.0 L926.6 53.5 L927.2 60.1 L927.8 65.1 L928.4 67.7 L929.0 67.7 L929.6 65.1 L930.2 60.1 L930.8 53.5 L931.4 46.0 L932.0 38.5 L932.6 31.9 L933.2 26.9 L933.8 24.3 L934.3 24.3 L934.9 26.9 L935.5 31.9 L936.1 38.5 L936.7 46.0 L937.2 53.5 L937.8 60.1 L938.4 65.1 L939.0 67.7 L939.6 67.7 L940.1 65.1 L940.7 60.1 L941.3 53.5 L941.8 46.0 L942.4 38.5 L943.0 31.9 L943.6 26.9 L944.1 24.3 L944.7 24.3 L945.2 26.9 L945.8 31.9 L946.4 38.5 L946.9 46.0 L947.5 53.5 L948.1 60.1 L948.6 65.1 L949.2 67.7 L949.7 67.7 L950.3 65.1 L950.8 60.1 L951.4 53.5 L951.9 46.0 L952.5 38.5 L953.0 31.9 L953.6 26.9 L954.1 24.3 L954.7 24.3 L955.2 26.9 L955.8 31.9 L956.3 38.5 L956.9 46.0 L957.4 53.5 L958.0 60.1 L958.5 65.1 L959.0 67.7 L959.6 67.7 L960.1 65.1 L960.6 60.1 L961.2 53.5 L961.7 46.0 L962.2 38.5 L962.8 31.9 L963.3 26.9 L963.8 24.3 L964.4 24.3 L964.9 26.9 L965.4 31.9 L966.0 38.5 L966.5 46.0 L967.0 53.5 L967.5 60.1 L968.1 65.1 L968.6 67.7 L969.1 67.7 L969.6 65.1 L970.1 60.1 L970.7 53.5 L971.2 46.0 L971.7 38.5 L972.2 31.9 L972.7 26.9 L973.2 24.3 L973.8 24.3 L974.3 26.9 L974.8 31.9 L975.3 38.5 L975.8 46.0 L976.3 53.5 L976.8 60.1 L977.3 65.1 L977.8 67.7 L978.3 67.7 L978.9 65.1 L979.4 60.1 L979.9 53.5 L980.4 46.0 L980.9 38.5 L981.4 31.9 L981.9 26.9 L982.4 24.3 L982.9 24.3 L983.4 26.9 L983.9 31.9 L984.4 38.5 L984.8 46.0 L985.3 53.5 L985.8 60.1 L986.3 65.1 L986.8 67.7 L987.3 67.7 L987.8 65.1 L988.3 60.1 L988.8 53.5 L989.3 46.0 L989.8 38.5 L990.2 31.9 L990.7 26.9 L991.2 24.3 L991.7 24.3 L992.2 26.9 L992.7 31.9 L993.1 38.5 L993.6 46.0 L994.1 53.5 L994.6 60.1 L995.1 65.1 L995.5 67.7 L996.0 67.7 L996.5 65.1 L997.0 60.1 L997.5 53.5 L997.9 46.0 L998.4 38.5 L998.9 31.9 L999.3 26.9 L999.8 24.3 L1000.3 24.3 L1000.8 26.9 L1001.2 31.9 L1001.7 38.5 L1002.2 46.0 L1002.6 53.5 L1003.1 60.1 L1003.6 65.1 L1004.0 67.7 L1004.5 67.7 L1005.0 65.1 L1005.4 60.1 L1005.9 53.5 L1006.3 46.0 L1006.8 38.5 L1007.3 31.9 L1007.7 26.9 L1008.2 24.3 L1008.6 24.3 L1009.1 26.9 L1009.6 31.9 L1010.0 38.5 L1010.5 46.0 L1010.9 53.5 L1011.4 60.1 L1011.8 65.1 L1012.3 67.7 L1012.7 67.7 L1013.2 65.1 L1013.6 60.1 L1014.1 53.5 L1014.5 46.0 L1015.0 38.5 L1015.4 31.9 L1015.9 26.9 L1016.3 24.3 L1016.8 24.3 L1017.2 26.9 L1017.7 31.9 L1018.1 38.5 L1018.5 46.0 L1019.0 53.5 L1019.4 60.1 L1019.9 65.1 L1020.3 67.7 L1020.8 67.7 L1021.2 65.1 L1021.6 60.1 L1022.1 53.5 L1022.5 46.0 L1022.9 38.5 L1023.4 31.9 L1023.8 26.9 L1024.2 24.3 L1024.7 24.3 L1025.1 26.9 L1025.6 31.9 L1026.0 38.5 L1026.4 46.0 L1026.8 53.5 L1027.3 60.1 L1027.7 65.1 L1028.1 67.7 L1028.6 67.7 L1029.0 65.1 L1029.4 60.1 L1029.8 53.5 L1030.3 46.0 L1030.7 38.5 L1031.1 31.9 L1031.6 26.9 L1032.0 24.3 L1032.4 24.3 L1032.8 26.9 L1033.2 31.9 L1033.7 38.5 L1034.1 46.0 L1034.5 53.5 L1034.9 60.1 L1035.3 65.1 L1035.8 67.7 L1036.2 67.7 L1036.6 65.1 L1037.0 60.1 L1037.4 53.5 L1037.9 46.0 L1038.3 38.5 L1038.7 31.9 L1039.1 26.9 L1039.5 24.3 L1039.9 24.3 L1040.3 26.9 L1040.7 31.9 L1041.2 38.5 L1041.6 46.0 L1042.0 53.5 L1042.4 60.1 L1042.8 65.1 L1043.2 67.7 L1043.6 67.7 L1044.0 65.1 L1044.4 60.1 L1044.8 53.5 L1045.2 46.0 L1045.6 38.5 L1046.1 31.9 L1046.5 26.9 L1046.9 24.3 L1047.3 24.3 L1047.7 26.9 L1048.1 31.9 L1048.5 38.5 L1048.9 46.0 L1049.3 53.5 L1049.7 60.1 L1050.1 65.1 L1050.5 67.7 L1050.9 67.7 L1051.3 65.1 L1051.7 60.1 L1052.1 53.5 L1052.5 46.0 L1052.9 38.5 L1053.2 31.9 L1053.6 26.9 L1054.0 24.3 L1054.4 24.3 L1054.8 26.9 L1055.2 31.9 L1055.6 38.5 L1056.0 46.0 L1056.4 53.5 L1056.8 60.1 L1057.2 65.1 L1057.6 67.7 L1058.0 67.7 L1058.3 65.1 L1058.7 60.1 L1059.1 53.5 L1059.5 46.0 L1059.9 38.5 L1060.3 31.9 L1060.7 26.9 L1061.0 24.3 L1061.4 24.3 L1061.8 26.9 L1062.2 31.9 L1062.6 38.5 L1063.0 46.0 L1063.3 53.5 L1063.7 60.1 L1064.1 65.1 L1064.5 67.7 L1064.9 67.7 L1065.3 65.1 L1065.6 60.1 L1066.0 53.5 L1066.4 46.0 L1066.8 38.5 L1067.1 31.9 L1067.5 26.9 L1067.9 24.3 L1068.3 24.3 L1068.7 26.9 L1069.0 31.9 L1069.4 38.5 L1069.8 46.0 L1070.2 53.5 L1070.5 60.1 L1070.9 65.1 L1071.3 67.7 L1071.6 67.7 L1072.0 65.1 L1072.4 60.1 L1072.8 53.5 L1073.1 46.0 L1073.5 38.5 L1073.9 31.9 L1074.2 26.9 L1074.6 24.3 L1075.0 24.3 L1075.3 26.9 L1075.7 31.9 L1076.1 38.5 L1076.4 46.0 L1076.8 53.5 L1077.2 60.1 L1077.5 65.1 L1077.9 67.7 L1078.3 67.7 L1078.6 65.1 L1079.0 60.1 L1079.4 53.5 L1079.7 46.0 L1080.1 38.5 L1080.4 31.9 L1080.8 26.9 L1081.2 24.3 L1081.5 24.3 L1081.9 26.9 L1082.2 31.9 L1082.6 38.5 L1083.0 46.0 L1083.3 53.5 L1083.7 60.1 L1084.0 65.1 L1084.4 67.7 L1084.7 67.7 L1085.1 65.1 L1085.5 60.1 L1085.8 53.5 L1086.2 46.0 L1086.5 38.5 L1086.9 31.9 L1087.2 26.9 L1087.6 24.3 L1087.9 24.3 L1088.3 26.9 L1088.6 31.9 L1089.0 38.5 L1089.3 46.0 L1089.7 53.5 L1090.0 60.1 L1090.4 65.1 L1090.7 67.7 L1091.1 67.7 L1091.4 65.1 L1091.8 60.1 L1092.1 53.5 L1092.5 46.0 L1092.8 38.5 L1093.2 31.9 L1093.5 26.9 L1093.9 24.3 L1094.2 24.3 L1094.6 26.9 L1094.9 31.9 L1095.2 38.5 L1095.6 46.0 L1095.9 53.5 L1096.3 60.1 L1096.6 65.1 L1097.0 67.7 L1097.3 67.7 L1097.6 65.1 L1098.0 60.1 L1098.3 53.5 L1098.7 46.0 L1099.0 38.5 L1099.3 31.9 L1099.7 26.9 L1100.0 24.3 L1100.4 24.3 L1100.7 26.9 L1101.0 31.9 L1101.4 38.5 L1101.7 46.0 L1102.0 53.5 L1102.4 60.1 L1102.7 65.1 L1103.1 67.7 L1103.4 67.7 L1103.7 65.1 L1104.1 60.1 L1104.4 53.5 L1104.7 46.0 L1105.1 38.5 L1105.4 31.9 L1105.7 26.9 L1106.1 24.3 L1106.4 24.3 L1106.7 26.9 L1107.0 31.9 L1107.4 38.5 L1107.7 46.0 L1108.0 53.5 L1108.4 60.1 L1108.7 65.1 L1109.0 67.7 L1109.4 67.7 L1109.7 65.1 L1110.0 60.1 L1110.3 53.5 L1110.7 46.0 L1111.0 38.5 L1111.3 31.9 L1111.6 26.9 L1112.0 24.3 L1112.3 24.3 L1112.6 26.9 L1112.9 31.9 L1113.3 38.5 L1113.6 46.0 L1113.9 53.5 L1114.2 60.1 L1114.6 65.1 L1114.9 67.7 L1115.2 67.7 L1115.5 65.1 L1115.9 60.1 L1116.2 53.5 L1116.5 46.0 L1116.8 38.5 L1117.1 31.9 L1117.5 26.9 L1117.8 24.3 L1118.1 24.3 L1118.4 26.9 L1118.7 31.9 L1119.1 38.5 L1119.4 46.0 L1119.7 53.5 L1120.0 60.1 L1120.3 65.1 L1120.6 67.7 L1121.0 67.7 L1121.3 65.1 L1121.6 60.1 L1121.9 53.5 L1122.2 46.0 L1122.5 38.5 L1122.8 31.9 L1123.2 26.9 L1123.5 24.3 L1123.8 24.3 L1124.1 26.9 L1124.4 31.9 L1124.7 38.5 L1125.0 46.0 L1125.3 53.5 L1125.7 60.1 L1126.0 65.1 L1126.3 67.7 L1126.6 67.7 L1126.9 65.1 L1127.2 60.1 L1127.5 53.5 L1127.8 46.0 L1128.1 38.5 L1128.4 31.9 L1128.8 26.9 L1129.1 24.3 L1129.4 24.3 L1129.7 26.9 L1130.0 31.9 L1130.3 38.5 L1130.6 46.0 L1130.9 53.5 L1131.2 60.1 L1131.5 65.1 L1131.8 67.7 L1132.1 67.7 L1132.4 65.1 L1132.7 60.1 L1133.0 53.5 L1133.3 46.0 L1133.6 38.5 L1133.9 31.9 L1134.2 26.9 L1134.6 24.3 L1134.9 24.3 L1135.2 26.9 L1135.5 31.9 L1135.8 38.5 L1136.1 46.0 L1136.4 53.5 L1136.7 60.1 L1137.0 65.1 L1137.3 67.7 L1137.6 67.7 L1137.9 65.1 L1138.2 60.1 L1138.5 53.5 L1138.8 46.0 L1139.1 38.5 L1139.3 31.9 L1139.6 26.9 L1139.9 24.3 L1140.2 24.3 L1140.5 26.9 L1140.8 31.9 L1141.1 38.5 L1141.4 46.0 L1141.7 53.5 L1142.0 60.1 L1142.3 65.1 L1142.6 67.7 L1142.9 67.7 L1143.2 65.1 L1143.5 60.1 L1143.8 53.5 L1144.1 46.0 L1144.4 38.5 L1144.7 31.9 L1144.9 26.9 L1145.2 24.3 L1145.5 24.3 L1145.8 26.9 L1146.1 31.9 L1146.4 38.5 L1146.7 46.0 L1147.0 53.5 L1147.3 60.1 L1147.6 65.1 L1147.9 67.7 L1148.1 67.7 L1148.4 65.1 L1148.7 60.1 L1149.0 53.5 L1149.3 46.0 L1149.6 38.5 L1149.9 31.9 L1150.2 26.9 L1150.4 24.3 L1150.7 24.3 L1151.0 26.9 L1151.3 31.9 L1151.6 38.5 L1151.9 46.0 L1152.2 53.5 L1152.4 60.1 L1152.7 65.1 L1153.0 67.7 L1153.3 67.7 L1153.6 65.1 L1153.9 60.1 L1154.2 53.5 L1154.4 46.0 L1154.7 38.5 L1155.0 31.9 L1155.3 26.9 L1155.6 24.3 L1155.8 24.3 L1156.1 26.9 L1156.4 31.9 L1156.7 38.5 L1157.0 46.0 L1157.3 53.5 L1157.5 60.1 L1157.8 65.1 L1158.1 67.7 L1158.4 67.7 L1158.7 65.1 L1158.9 60.1 L1159.2 53.5 L1159.5 46.0 L1159.8 38.5" mask="url(#spec-pulse-mask)"/>
+              <rect x="40" y="80" width="1120" height="24" rx="6" fill="url(#spec-grad)"/>
+              <text x="150" y="126" class="spec-label">Radio</text><text x="340" y="126" class="spec-label">Microgolven</text><text x="486" y="126" class="spec-label">Infrarood</text><text x="620" y="126" class="spec-label spec-label--vis">Zichtbaar</text><text x="720" y="126" class="spec-label">UV</text><text x="870" y="126" class="spec-label">Röntgen</text><text x="1060" y="126" class="spec-label">Gamma</text>
+            </g>
+            <g class="spec-static">
+              <text x="150" y="150" class="spec-wl">1 km</text><text x="340" y="150" class="spec-wl">1 cm</text><text x="500" y="150" class="spec-wl">10 µm</text><text x="620" y="150" class="spec-wl">500 nm</text><text x="720" y="150" class="spec-wl">100 nm</text><text x="870" y="150" class="spec-wl">0,1 nm</text><text x="1060" y="150" class="spec-wl">0,001 nm</text>
+              <text x="150" y="178" class="spec-pin c-blue">▲ MRI</text>
+              <text x="850" y="178" class="spec-pin c-sun">▲ Röntgen · CT</text>
+              <text x="1082" y="178" class="spec-pin c-coral">▲ PET · radiotherapie</text>
+              <path d="M700 196 V204 H1160 V196" class="spec-bracket"/>
+              <text x="930" y="228" class="spec-ion">ioniserend</text>
+              <text x="40" y="242" class="spec-energy" text-anchor="start">← lange golven · weinig energie</text>
+              <text x="660" y="242" class="spec-energy" text-anchor="end">korte golven · veel energie →</text>
+            </g>
+          </svg>
+          <span class="spectrum__badge" aria-hidden="true">ioniserend</span>
+        </figure>
+      </div>
+      </div>
     </section>
 
     <!-- ===== HET IDEE ===== -->
     <section class="split" id="idee">
       <div class="split__text">
         <h2>Het idee</h2>
-        <p class="lead">Wat gebeurt er eigenlijk achter de dikke deuren van een ziekenhuis, als iemand de diagnose kanker krijgt?</p>
-        <p>In <strong>Missie: tumor onder controle</strong> volg je de <em>patient journey</em> van een oncologische patiënt: van de eerste scan tot de laatste bestraling. Je gaat langs drie stations, die elk een stap uit het diagnostische en therapeutische traject tonen.</p>
+        <p class="lead">Wat gebeurt er eigenlijk achter de deuren van een ziekenhuis, als iemand de diagnose kanker krijgt?</p>
+        <p>In <strong>Missie: tumor onder controle</strong> volg je het traject van een oncologische patiënt: van de eerste scan tot de laatste bestraling. Je gaat langs drie stations, die elk een stap uit het diagnostische en therapeutische traject tonen.</p>
         <p>Onderweg leer je de mensen kennen die je bijna nooit ziet: de <strong>medisch fysici</strong>. Zij zijn de wetenschappers achter MRI, CT, PET-CT en bestralingstoestellen, en zorgen ervoor dat elke patiënt de juiste dosis krijgt, op de juiste plek, op de millimeter.</p>
         <a class="btn btn--outline" href="#traject">Bekijk het traject</a>
       </div>
@@ -106,18 +176,46 @@
 
     <!-- ===== JOURNEY STRIP ===== -->
     <section class="journey" id="traject" aria-labelledby="journey-title">
-      <h2 id="journey-title">De patient journey</h2>
+      <h2 id="journey-title">Het traject van de patiënt</h2>
       <ol class="journey__steps">
-        <li style="--c:var(--blue)"><span class="journey__dot"></span><strong>Diagnose</strong><small>Scannen &amp; in beeld brengen</small></li>
-        <li style="--c:var(--coral)"><span class="journey__dot"></span><strong>Behandeling</strong><small>Positioneren &amp; bestralen</small></li>
-        <li style="--c:var(--mint)"><span class="journey__dot"></span><strong>Controle</strong><small>Meten, testen, borgen</small></li>
+        <li class="c-blue"><span class="journey__dot"></span><strong>Diagnose</strong><small>Scannen &amp; in beeld brengen</small></li>
+        <li class="c-coral"><span class="journey__dot"></span><strong>Behandeling</strong><small>Positioneren &amp; bestralen</small></li>
+        <li class="c-mint"><span class="journey__dot"></span><strong>Controle</strong><small>Meten, testen, borgen</small></li>
       </ol>
+      <div class="onboard">
+        <div class="onboard__head">
+          <span class="onboard__boat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14.5h18l-2.6 4.5H5.6z"/><path d="M12 3v11.5M12 4.5l6.5 8H12M12 7l-4.5 5.5H12"/></svg></span>
+          <div>
+            <p class="eyebrow eyebrow--pink">Op de boot</p>
+            <h3>Niet alleen kijken: zelf doen</h3>
+          </div>
+        </div>
+        <ul class="onboard__list">
+          <li class="onboard__item c-blue">
+            <img width="1600" height="1065" src="assets/img/vertual-anatomie-3d.jpg" alt="Virtuele patiënt met de organen in 3D op de behandeltafel" loading="lazy">
+            <span><b>Kijken zonder te snijden</b>Op een groot scherm en in 3D zie je wat CT, MRI en PET-CT elk tonen, hoe ze werken en waarom we ze combineren.</span>
+          </li>
+          <li class="onboard__item c-coral">
+            <img width="580" height="580" src="assets/img/orfit-masker-3.webp" alt="Rij bestralingsmaskers, beschilderd als superhelden en tekenfilmfiguren" loading="lazy">
+            <span><b>Masker maken</b>Kinderen vormen een echt bestralingsmasker over een pop.</span>
+          </li>
+          <li class="onboard__item c-coral">
+            <img width="612" height="326" src="assets/img/vert.jpg" alt="Iemand bedient het virtuele bestralingstoestel met een controller" loading="lazy">
+            <span><b>Jij aan de knoppen</b>Bedien zelf een virtuele lineaire versneller: leg de patiënt op de millimeter juist en mik de bundel op de tumor.</span>
+          </li>
+          <li class="onboard__item c-mint">
+            <img width="1427" height="1110" src="assets/img/vertual-waterfantoom.jpg" alt="Waterfantoom onder de kop van een bestralingstoestel, klaar om de bundel op te meten" loading="lazy">
+            <span><b>Meten is weten</b>Medisch fysici meten live een bundel op, zodat elke patiënt veilig de juiste dosis krijgt.</span>
+          </li>
+        </ul>
+        <span class="onboard__waves" aria-hidden="true"></span>
+      </div>
     </section>
 
     <!-- ===== STATION 1 ===== -->
-    <article class="station" style="--c:var(--blue)">
+    <article id="station-1" class="station c-blue">
       <figure class="station__media">
-        <img src="assets/img/vertual-ct-reconstructie.jpg" alt="3D-reconstructie van een patiënt uit CT-beelden, met de organen in kleur" loading="lazy">
+        <img width="1208" height="864" src="assets/img/vertual-ct-reconstructie.jpg" alt="3D-reconstructie van een patiënt uit CT-beelden, met de organen in kleur" loading="lazy">
       </figure>
       <div class="station__text">
         <p class="station__num">01</p>
@@ -135,9 +233,9 @@
     </article>
 
     <!-- ===== STATION 2 ===== -->
-    <article class="station station--alt" style="--c:var(--coral)">
+    <article id="station-2" class="station station--alt c-coral">
       <figure class="station__media">
-        <img src="assets/img/vert.jpg" alt="Twee mensen met een 3D-bril bij het virtuele bestralingstoestel: de bundel gaat door een patiënt met de organen in kleur, één van hen bedient het toestel met een afstandsbediening" loading="lazy">
+        <img width="612" height="326" src="assets/img/vert.jpg" alt="Twee mensen met een 3D-bril bij het virtuele bestralingstoestel: de bundel gaat door een patiënt met de organen in kleur, één van hen bedient het toestel met een afstandsbediening" loading="lazy">
       </figure>
       <div class="station__text">
         <p class="station__num">02</p>
@@ -149,22 +247,23 @@
           <li>Laat het toestel rond de patiënt draaien</li>
           <li>Zie hoe de stralenbundel de tumor raakt en gezond weefsel spaart</li>
         </ul>
-        <aside class="partner">
-          <p><strong>Maak je eigen masker, met de Belgische firma <a href="https://www.orfit.com/" target="_blank" rel="noopener">ORFIT</a>.</strong> Tijdens een bestraling ligt het hoofd van de patiënt stil dankzij een thermoplastisch masker op maat. Op het festival maken <strong>kinderen zelf zo&rsquo;n masker</strong>: ze vormen een klein stuk ORFIT-materiaal over het hoofd van een pop, net zoals dat in het ziekenhuis gebeurt bij een echte patiënt.</p>
-          <div class="partner__photos">
-            <img src="assets/img/orfit-masker-1.webp" alt="Thermoplastisch masker met geschilderde bloemen, op de tafel van een bestralingstoestel" loading="lazy">
-            <img src="assets/img/orfit-masker-2.webp" alt="Twee bestralingsmaskers beschilderd als Minnie en Mickey Mouse" loading="lazy">
-            <img src="assets/img/orfit-masker-3.webp" alt="Rij bestralingsmaskers beschilderd als superhelden en tekenfilmfiguren" loading="lazy">
-          </div>
-        </aside>
         <ul class="tags"><li>Radiotherapie</li><li>Lineaire versneller</li><li>Hands-on</li><li>VERTUAL</li><li>ORFIT</li></ul>
       </div>
+      <aside class="partner">
+        <p class="partner__label">&#8627; Onderdeel van de behandeling</p>
+        <p><strong>Maak je eigen masker, met de Belgische firma <a href="https://www.orfit.com/" target="_blank" rel="noopener">ORFIT</a>.</strong> Tijdens een bestraling ligt het hoofd van de patiënt stil dankzij een thermoplastisch masker op maat. Op het festival maken <strong>kinderen zelf zo&rsquo;n masker</strong>: ze vormen een klein stuk ORFIT-materiaal over het hoofd van een pop, net zoals dat in het ziekenhuis gebeurt bij een echte patiënt.</p>
+        <div class="partner__photos">
+          <img width="580" height="580" src="assets/img/orfit-masker-1.webp" alt="Thermoplastisch masker met geschilderde bloemen, op de tafel van een bestralingstoestel" loading="lazy">
+          <img width="580" height="580" src="assets/img/orfit-masker-2.webp" alt="Twee bestralingsmaskers beschilderd als Minnie en Mickey Mouse" loading="lazy">
+          <img width="580" height="580" src="assets/img/orfit-masker-3.webp" alt="Rij bestralingsmaskers beschilderd als superhelden en tekenfilmfiguren" loading="lazy">
+        </div>
+      </aside>
     </article>
 
     <!-- ===== STATION 3 ===== -->
-    <article class="station" style="--c:var(--mint)">
+    <article id="station-3" class="station c-mint">
       <figure class="station__media">
-        <img src="assets/img/vertual-waterfantoom.jpg" alt="Waterfantoom onder de kop van een bestralingstoestel, klaar om de bundel op te meten" loading="lazy">
+        <img width="1427" height="1110" src="assets/img/vertual-waterfantoom.jpg" alt="Waterfantoom onder de kop van een bestralingstoestel, klaar om de bundel op te meten" loading="lazy">
       </figure>
       <div class="station__text">
         <p class="station__num">03</p>
@@ -185,21 +284,21 @@
       <div class="gradient-block__inner">
         <p class="eyebrow eyebrow--navy">Themazone</p>
         <h2 class="on-gradient">Thuis op Nerdland</h2>
-        <p class="lead lead--navy">Sciencefiction? Het staat gewoon in je ziekenhuis. Een bestralingsbunker voelt als de cockpit van een ruimteschip: betonnen muren van meters dik, groene lasers in het donker en een toestel van tonnen dat rond de patiënt draait.</p>
+        <p class="lead lead--navy">Sciencefiction? Het staat gewoon in je ziekenhuis. Een bestralingsbunker voelt als de cockpit van een ruimteschip: betonnen muren, groene lasers in het donker en een toestel van tonnen dat rond de patiënt draait.</p>
         <div class="facts">
-          <div class="fact" style="--c:var(--blue)">
+          <div class="fact c-blue">
             <p class="fact__big">60.000&times;</p>
             <p>sterker dan het aardmagnetisch veld: de supergeleidende magneet van een 3&nbsp;tesla-MRI.</p>
           </div>
-          <div class="fact" style="--c:var(--violet)">
+          <div class="fact c-violet">
             <p class="fact__big">Antimaterie</p>
             <p>Een PET-scan meet positronen: de antideeltjes van elektronen. Elke dag, in Belgische ziekenhuizen.</p>
           </div>
-          <div class="fact" style="--c:var(--coral)">
+          <div class="fact c-coral">
             <p class="fact__big">~c</p>
             <p>Een bestralingstoestel versnelt elektronen tot bijna de lichtsnelheid, in een buis van een meter lang.</p>
           </div>
-          <div class="fact" style="--c:var(--mint)">
+          <div class="fact c-mint">
             <p class="fact__big">1&nbsp;mm</p>
             <p>Zo precies mikken we. Medisch fysici controleren dat elke dag opnieuw.</p>
           </div>
@@ -213,12 +312,12 @@
       <p class="gallery__intro">Beelden uit VERTUAL, de virtuele bestralingsbunker waarmee bezoekers zelf aan de slag gaan.</p>
       <!-- Foto toevoegen: zet ze in assets/img/ en kopieer een <figure>-regel. "--wide" = dubbel zo breed. -->
       <div class="gallery__grid">
-        <figure class="gallery__item gallery__item--wide"><img src="assets/img/vertual-gantry-hoek.jpg" alt="Het bestralingstoestel staat schuin; de bundel gaat onder een hoek door de virtuele patiënt" loading="lazy"><figcaption>De bundel komt van alle kanten</figcaption></figure>
-        <figure class="gallery__item"><img src="assets/img/mri-hersentumor.jpg" alt="MRI-beeld van de hersenen waarop een tumor oplicht" loading="lazy" style="object-position: 25% 50%"><figcaption>Tumor in beeld</figcaption></figure>
-        <figure class="gallery__item"><img src="assets/img/dosisverdeling.jpg" alt="Dosisverdeling: rood op de tumor, blauw in het gezonde weefsel" loading="lazy"><figcaption>Rood = hoge dosis</figcaption></figure>
-        <figure class="gallery__item"><img src="assets/img/vertual-anatomie-3d.jpg" alt="Virtuele patiënt met organen in 3D op de behandeltafel, met de bundel er recht doorheen" loading="lazy"><figcaption>Organen in 3D</figcaption></figure>
-        <figure class="gallery__item gallery__item--wide"><img src="assets/img/vertual-versahd.jpg" alt="Een ander type bestralingstoestel in de virtuele bunker, met de laser die het isocentrum aanwijst" loading="lazy"><figcaption>Elk toestel, virtueel</figcaption></figure>
-        <figure class="gallery__item"><img src="assets/img/vertual-patient-bundel.jpg" alt="Virtuele patiënt op de behandeltafel onder de stralenbundel" loading="lazy" style="object-position: 42% 50%"><figcaption>Bestraling aan</figcaption></figure>
+        <figure class="gallery__item gallery__item--wide"><img width="1600" height="1062" src="assets/img/vertual-gantry-hoek.jpg" alt="Het bestralingstoestel staat schuin; de bundel gaat onder een hoek door de virtuele patiënt" loading="lazy"><figcaption>De bundel komt van alle kanten</figcaption></figure>
+        <figure class="gallery__item"><img width="691" height="557" class="focus-25" src="assets/img/mri-hersentumor.jpg" alt="MRI-beeld van de hersenen waarop een tumor oplicht" loading="lazy"><figcaption>Tumor in beeld</figcaption></figure>
+        <figure class="gallery__item"><img width="1439" height="1015" src="assets/img/dosisverdeling.jpg" alt="Dosisverdeling: rood op de tumor, blauw in het gezonde weefsel" loading="lazy"><figcaption>Rood = hoge dosis</figcaption></figure>
+        <figure class="gallery__item"><img width="1600" height="1065" src="assets/img/vertual-anatomie-3d.jpg" alt="Virtuele patiënt met organen in 3D op de behandeltafel, met de bundel er recht doorheen" loading="lazy"><figcaption>Organen in 3D</figcaption></figure>
+        <figure class="gallery__item gallery__item--wide"><img width="1529" height="1146" src="assets/img/vertual-versahd.jpg" alt="Een ander type bestralingstoestel in de virtuele bunker, met de laser die het isocentrum aanwijst" loading="lazy"><figcaption>Elk toestel, virtueel</figcaption></figure>
+        <figure class="gallery__item"><img width="1600" height="1104" class="focus-42" src="assets/img/vertual-patient-bundel.jpg" alt="Virtuele patiënt op de behandeltafel onder de stralenbundel" loading="lazy"><figcaption>Bestraling aan</figcaption></figure>
       </div>
     </section>
 
@@ -227,12 +326,14 @@
       <div class="split__text">
         <h2>Wie zijn wij?</h2>
         <p class="lead">BHPA is de Belgische vereniging van ziekenhuisfysici (BVZF&nbsp;&middot;&nbsp;SBPH).</p>
-        <p>Wij zijn wetenschappers die zorgen voor het correcte en veilige gebruik van technologie en ioniserende straling in de geneeskunde: in de radiologie, de nucleaire geneeskunde en de radiotherapie. Je kent ons misschien als <strong>medisch fysici</strong>.</p>
+        <p>Wij zijn wetenschappers die zorgen voor het correcte en veilige gebruik van technologie en ioniserende straling in de geneeskunde: in de radiologie, MRI, de nucleaire geneeskunde en de radiotherapie, en via de fysische controle. Je kent ons misschien als <strong>medisch fysici</strong>.</p>
         <p>Wij vormen de brug tussen arts, patiënt en technologie, bij de diagnose én bij de behandeling. Onze belangrijkste taak: garanderen dat de voorgeschreven straling nauwkeurig en veilig bij de patiënt terechtkomt.</p>
         <div class="btn-row">
           <a class="btn" href="https://www.bhpa.eu" target="_blank" rel="noopener">Naar BHPA.eu</a>
           <a class="btn btn--outline" href="https://vertual.co.uk/" target="_blank" rel="noopener">Over VERTUAL</a>
+          <a class="btn btn--outline" href="https://www.orfit.com/" target="_blank" rel="noopener">Over ORFIT</a>
         </div>
+        <p class="small-link">Meer over straling en veiligheid in België: <a href="https://fanc.fgov.be/nl" target="_blank" rel="noopener">FANC, het Federaal Agentschap voor Nucleaire Controle</a></p>
       </div>
     </section>
 
