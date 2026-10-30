@@ -300,6 +300,18 @@ strong { color: var(--ink); }
   pointer-events: none;
 }
 @keyframes hero-glow { to { transform: rotate(360deg); } }
+.hero__badge {                /* 'Een experience van BHPA · Nerdland Festival 2027', over de volle breedte */
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: .55em 1em;
+  text-align: center;
+  border: 1px solid color-mix(in srgb, var(--blue) 50%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--blue) 18%, transparent);
+  color: var(--ink);
+  font-size: .8rem;
+  letter-spacing: .08em;
+}
 .hero__title {
   margin-bottom: .35em;
   color: var(--ink);
@@ -558,7 +570,7 @@ strong { color: var(--ink); }
   aspect-ratio: 1;
   translate: 0 -50%;
   color: var(--ink);
-  opacity: .05;
+  opacity: .06;
   pointer-events: none;
 }
 .watermark svg { display: block; width: 100%; height: 100%; fill: currentColor; }
@@ -838,29 +850,38 @@ strong { color: var(--ink); }
   position: relative;
   max-width: 1040px;
   margin: 28px auto 0;
-  padding: 20px clamp(16px, 3vw, 28px) 34px;
-  overflow: clip;
+  padding: 20px clamp(16px, 3vw, 28px);
   border: 1px solid var(--line);
   border-radius: 24px;
   background: var(--surface);
   text-align: left;
 }
-.onboard__head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.onboard__head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 16px; }
+.onboard__head > div { flex: 1 1 260px; }
 .onboard__head .eyebrow { margin: 0 0 .2em; }
 .onboard__head h3 { margin: 0; font-size: clamp(1.2rem, 2.4vw, 1.6rem); }
-.onboard__boat {
-  display: grid;
+.onboard__stamp {                /* stempel linksboven: hier doe je het zelf */
+  display: inline-flex;
   flex: none;
-  place-items: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--blue);
-  color: var(--on-blue);
-  animation: bob 4s ease-in-out infinite;
+  align-items: center;
+  gap: 6px;
+  margin: -34px 0 0 -30px;
+  padding: 6px 12px 6px 8px;
+  border: 2.5px solid var(--coral);
+  border-radius: 10px;
+  outline: 1.5px solid var(--coral);
+  outline-offset: 3px;
+  background: var(--bg);
+  color: var(--coral);
+  font-size: .8rem;
+  font-weight: 900;
+  font-stretch: 125%;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transform: rotate(-8deg);
+  box-shadow: var(--shadow);
 }
-.onboard__boat svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-@keyframes bob { 50% { transform: translateY(-3px) rotate(-4deg); } }
+.onboard__stamp svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 .onboard__list {
   display: grid;
@@ -892,19 +913,6 @@ strong { color: var(--ink); }
   letter-spacing: .04em;
   text-transform: uppercase;
 }
-.onboard__waves {                /* golvende rand onderaan: dit gebeurt op het water */
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 14px;
-  background: linear-gradient(90deg, var(--blue), var(--sky), var(--mint));
-  opacity: .55;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6 Q10 0 20 6 T40 6 V12 H0Z'/%3E%3C/svg%3E") repeat-x 0 0 / 40px 12px;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6 Q10 0 20 6 T40 6 V12 H0Z'/%3E%3C/svg%3E") repeat-x 0 0 / 40px 12px;
-  animation: waves 6s linear infinite;
-}
-@keyframes waves { to { -webkit-mask-position: 40px 0; mask-position: 40px 0; } }
 
 /* ---------- 'Wie zijn wij?': BHPA-zin in de kijker ---------- */
 #bhpa .lead {
@@ -988,8 +996,7 @@ strong { color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .marquee__track, .hero::before, .spec-pulse, .spec-zoom, .spec-static, .particles li,
-  .onboard__boat, .onboard__waves { animation: none; }
+  .marquee__track, .hero::before, .spec-pulse, .spec-zoom, .spec-static, .particles li { animation: none; }
   .spectrum__badge { display: none; }
   .btn, .gallery__item img, .theme-toggle::before, .lang a, body { transition: none; }
 }
