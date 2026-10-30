@@ -914,7 +914,7 @@ strong { color: var(--ink); }
   text-transform: uppercase;
 }
 
-/* ---------- 'Wie zijn wij?': BHPA-zin in de kijker ---------- */
+/* ---------- 'Wie zijn wij?': BHPA-zin en -knop in de kijker ---------- */
 #bhpa .lead {
   max-width: 34em;
   padding: .2em 0 .2em 18px;
@@ -1000,3 +1000,5 @@ strong { color: var(--ink); }
   .spectrum__badge { display: none; }
   .btn, .gallery__item img, .theme-toggle::before, .lang a, body { transition: none; }
 }
+#bhpa .btn-row { align-items: center; }
+#bhpa .btn--outline { padding: .5em 1em; font-size: .75rem; }   /* partners: kleiner dan 'Naar BHPA.eu' */
